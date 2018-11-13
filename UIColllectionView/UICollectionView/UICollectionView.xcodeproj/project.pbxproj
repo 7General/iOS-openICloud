@@ -13,6 +13,11 @@
 		22659132219AC90400C9E8A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22659131219AC90400C9E8A8 /* Assets.xcassets */; };
 		22659135219AC90400C9E8A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22659133219AC90400C9E8A8 /* LaunchScreen.storyboard */; };
 		22659138219AC90400C9E8A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22659137219AC90400C9E8A8 /* main.m */; };
+		22659142219AC98100C9E8A8 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22659141219AC98100C9E8A8 /* MainViewController.m */; };
+		22659145219AC9F500C9E8A8 /* GZIMCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22659144219AC9F500C9E8A8 /* GZIMCollectionViewController.m */; };
+		22659149219ACB6500C9E8A8 /* GZIMWorkspaceHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 22659148219ACB6500C9E8A8 /* GZIMWorkspaceHeader.m */; };
+		2265914C219ACB7500C9E8A8 /* GZIMWorkspaceSectionFoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2265914B219ACB7500C9E8A8 /* GZIMWorkspaceSectionFoot.m */; };
+		2265914F219ACCCE00C9E8A8 /* GZIMWorkspaceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2265914E219ACCCE00C9E8A8 /* GZIMWorkspaceItemCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,16 @@
 		22659134219AC90400C9E8A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22659136219AC90400C9E8A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22659137219AC90400C9E8A8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		22659140219AC98100C9E8A8 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		22659141219AC98100C9E8A8 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		22659143219AC9F500C9E8A8 /* GZIMCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZIMCollectionViewController.h; sourceTree = "<group>"; };
+		22659144219AC9F500C9E8A8 /* GZIMCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZIMCollectionViewController.m; sourceTree = "<group>"; };
+		22659147219ACB6500C9E8A8 /* GZIMWorkspaceHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZIMWorkspaceHeader.h; sourceTree = "<group>"; };
+		22659148219ACB6500C9E8A8 /* GZIMWorkspaceHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZIMWorkspaceHeader.m; sourceTree = "<group>"; };
+		2265914A219ACB7500C9E8A8 /* GZIMWorkspaceSectionFoot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZIMWorkspaceSectionFoot.h; sourceTree = "<group>"; };
+		2265914B219ACB7500C9E8A8 /* GZIMWorkspaceSectionFoot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZIMWorkspaceSectionFoot.m; sourceTree = "<group>"; };
+		2265914D219ACCCE00C9E8A8 /* GZIMWorkspaceItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZIMWorkspaceItemCell.h; sourceTree = "<group>"; };
+		2265914E219ACCCE00C9E8A8 /* GZIMWorkspaceItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZIMWorkspaceItemCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +73,8 @@
 		22659127219AC90400C9E8A8 /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				22659128219AC90400C9E8A8 /* AppDelegate.h */,
-				22659129219AC90400C9E8A8 /* AppDelegate.m */,
-				2265912B219AC90400C9E8A8 /* ViewController.h */,
-				2265912C219AC90400C9E8A8 /* ViewController.m */,
+				2265913F219AC96500C9E8A8 /* UICollectionView */,
+				2265913E219AC95600C9E8A8 /* Basic */,
 				2265912E219AC90400C9E8A8 /* Main.storyboard */,
 				22659131219AC90400C9E8A8 /* Assets.xcassets */,
 				22659133219AC90400C9E8A8 /* LaunchScreen.storyboard */,
@@ -69,6 +82,42 @@
 				22659137219AC90400C9E8A8 /* main.m */,
 			);
 			path = UICollectionView;
+			sourceTree = "<group>";
+		};
+		2265913E219AC95600C9E8A8 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				22659128219AC90400C9E8A8 /* AppDelegate.h */,
+				22659129219AC90400C9E8A8 /* AppDelegate.m */,
+				2265912B219AC90400C9E8A8 /* ViewController.h */,
+				2265912C219AC90400C9E8A8 /* ViewController.m */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		2265913F219AC96500C9E8A8 /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				22659146219ACA3C00C9E8A8 /* Cell */,
+				22659143219AC9F500C9E8A8 /* GZIMCollectionViewController.h */,
+				22659144219AC9F500C9E8A8 /* GZIMCollectionViewController.m */,
+				22659140219AC98100C9E8A8 /* MainViewController.h */,
+				22659141219AC98100C9E8A8 /* MainViewController.m */,
+			);
+			path = UICollectionView;
+			sourceTree = "<group>";
+		};
+		22659146219ACA3C00C9E8A8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				22659147219ACB6500C9E8A8 /* GZIMWorkspaceHeader.h */,
+				22659148219ACB6500C9E8A8 /* GZIMWorkspaceHeader.m */,
+				2265914A219ACB7500C9E8A8 /* GZIMWorkspaceSectionFoot.h */,
+				2265914B219ACB7500C9E8A8 /* GZIMWorkspaceSectionFoot.m */,
+				2265914D219ACCCE00C9E8A8 /* GZIMWorkspaceItemCell.h */,
+				2265914E219ACCCE00C9E8A8 /* GZIMWorkspaceItemCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,8 +192,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2265912D219AC90400C9E8A8 /* ViewController.m in Sources */,
+				22659145219AC9F500C9E8A8 /* GZIMCollectionViewController.m in Sources */,
 				22659138219AC90400C9E8A8 /* main.m in Sources */,
+				2265914C219ACB7500C9E8A8 /* GZIMWorkspaceSectionFoot.m in Sources */,
 				2265912A219AC90400C9E8A8 /* AppDelegate.m in Sources */,
+				22659142219AC98100C9E8A8 /* MainViewController.m in Sources */,
+				22659149219ACB6500C9E8A8 /* GZIMWorkspaceHeader.m in Sources */,
+				2265914F219ACCCE00C9E8A8 /* GZIMWorkspaceItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
