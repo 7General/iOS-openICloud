@@ -61,7 +61,7 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
             break;
         case UIGestureRecognizerStateEnded:
         {
-            if (0 == indexPath.item) {
+            if (0 == indexPath.item || self.departArry.count - 1 == indexPath.item) {
                 [self.collectionView cancelInteractiveMovement];
             } else {
                [self.collectionView endInteractiveMovement];
@@ -84,7 +84,7 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
 // 在开始移动时会调用此代理方法，
 -(BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
     //根据indexpath判断单元格是否可以移动，如果都可以移动，直接就返回YES ,不能移动的返回NO
-    if (0 == indexPath.item) {
+    if (0 == indexPath.item || self.departArry.count - 1 == indexPath.item) {
         return NO;
     }
     return YES;
@@ -95,7 +95,7 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
      *sourceIndexPath 原始数据 indexpath
      * destinationIndexPath 移动到目标数据的 indexPath
      */
-    if (0 == destinationIndexPath.item) return;
+    if (0 == destinationIndexPath.item || self.departArry.count - 1 == sourceIndexPath.item) return;
     NSString * insertItem = self.departArry[sourceIndexPath.item];
     [self.departArry removeObjectAtIndex:sourceIndexPath.item];
     [self.departArry insertObject:insertItem atIndex:destinationIndexPath.item];
