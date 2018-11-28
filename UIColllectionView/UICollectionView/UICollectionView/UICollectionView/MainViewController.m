@@ -79,6 +79,7 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
 // 在开始移动时会调用此代理方法，
 -(BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
     //根据indexpath判断单元格是否可以移动，如果都可以移动，直接就返回YES ,不能移动的返回NO
+    
     return YES;
 }
 // 在移动结束的时候调用此代理方法
@@ -181,8 +182,8 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
     
 //        UIColor * randomColor= [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
 //        cell.backgroundColor = randomColor;
-    
     [cell setItemText:self.departArry[indexPath.item]];
+    
     return cell;
 }
 
