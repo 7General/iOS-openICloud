@@ -10,4 +10,5 @@
 
 @interface GZIMWorkspaceItemCell : UICollectionViewCell
 
+- (void)setItemText:(NSString *)item;
 @end

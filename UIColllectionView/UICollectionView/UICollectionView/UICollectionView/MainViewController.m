@@ -29,21 +29,91 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
     [self addData];
     
     
-    self.collectionView.contentInset = UIEdgeInsetsMake(50 + 20, 0, 0, 0);
+//    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     /* 注册header和foot */
     [self.collectionView registerClass:[GZIMWorkspaceHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:GZIMCollectionViewHeaderIdentifier];
     [self.collectionView registerClass:[GZIMWorkspaceSectionFoot class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:GZIMCollectionViewFooterIdentifier];
     
     [self.collectionView registerClass:[GZIMWorkspaceItemCell class] forCellWithReuseIdentifier:GZWorkspaceItemReuseIdentifier];
+    
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
+    [self.collectionView addGestureRecognizer:longPressGesture];
 }
+
+
+- (void)longPressAction:(UILongPressGestureRecognizer *)longPress {
+    // 获取此次点击的坐标，根据坐标获取cell对应的indexPath
+    CGPoint point = [longPress locationInView:self.collectionView];
+    NSIndexPath * indexPath = [self.collectionView indexPathForItemAtPoint:point];
+    switch (longPress.state) {
+        case UIGestureRecognizerStateBegan:
+        {
+            if (!indexPath) {
+                break;
+            }
+            [self.collectionView beginInteractiveMovementForItemAtIndexPath:indexPath];
+        }
+            break;
+        case UIGestureRecognizerStateChanged:
+        {
+            [self.collectionView updateInteractiveMovementTargetPosition:point];
+        }
+            break;
+        case UIGestureRecognizerStateEnded:
+        {
+            [self.collectionView endInteractiveMovement];
+        }
+            break;
+        case UIGestureRecognizerStateCancelled:
+        {
+            [self.collectionView cancelInteractiveMovement];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark - 拖动
+// 在开始移动时会调用此代理方法，
+-(BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
+    //根据indexpath判断单元格是否可以移动，如果都可以移动，直接就返回YES ,不能移动的返回NO
+    return YES;
+}
+// 在移动结束的时候调用此代理方法
+-(void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    /**
+     *sourceIndexPath 原始数据 indexpath
+     * destinationIndexPath 移动到目标数据的 indexPath
+     */
+    NSString * insertItem = self.departArry[sourceIndexPath.item];
+    [self.departArry removeObjectAtIndex:sourceIndexPath.item];
+    [self.departArry insertObject:insertItem atIndex:destinationIndexPath.item];
+}
+
+
 - (void)addData {
-    [self.departArry addObject:@"12"];
+    [self.departArry addObject:@"1"];
+    [self.departArry addObject:@"2"];
+    [self.departArry addObject:@"3"];
+    [self.departArry addObject:@"4"];
+    [self.departArry addObject:@"5"];
+    [self.departArry addObject:@"6"];
+    [self.departArry addObject:@"7"];
+    [self.departArry addObject:@"8"];
+    [self.departArry addObject:@"9"];
+    [self.departArry addObject:@"10"];
     [self.departArry addObject:@"11"];
+    [self.departArry addObject:@"12"];
     [self.departArry addObject:@"13"];
     [self.departArry addObject:@"14"];
     [self.departArry addObject:@"15"];
     [self.departArry addObject:@"16"];
     [self.departArry addObject:@"17"];
+    [self.departArry addObject:@"18"];
+    [self.departArry addObject:@"19"];
+    [self.departArry addObject:@"20"];
     
     [self.roomArry addObject:@"1"];
     [self.roomArry addObject:@"2"];
@@ -69,7 +139,7 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
 
 #pragma mark - UICollectionViewDelegate
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return   3;
+    return   1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -107,14 +177,18 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GZIMWorkspaceItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:GZWorkspaceItemReuseIdentifier forIndexPath:indexPath];
-        UIColor * randomColor= [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
-        cell.backgroundColor = randomColor;
+    
+    
+//        UIColor * randomColor= [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+//        cell.backgroundColor = randomColor;
+    
+    [cell setItemText:self.departArry[indexPath.item]];
     return cell;
 }
 
 /* 点击 */
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"点击");
+    NSLog(@"点击>%@",self.departArry[indexPath.item]);
 }
 
 -(UICollectionViewFlowLayout *)collectionViewFlowLayout {
