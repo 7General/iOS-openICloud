@@ -24,10 +24,11 @@
     return self;
 }
 - (void)configUI {
-    UILabel * itemName = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    UILabel * itemName = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.frame.size.width-20, self.frame.size.height-20)];
     itemName.textColor = [UIColor blackColor];
     itemName.font = [UIFont systemFontOfSize:16];
     itemName.textAlignment = NSTextAlignmentCenter;
+    itemName.backgroundColor = [UIColor grayColor];
     [self.contentView addSubview:itemName];
     self.itemName = itemName;
     
@@ -36,6 +37,20 @@
     redPointView.layer.cornerRadius = 5;
     redPointView.layer.masksToBounds = YES;
     [self.contentView addSubview:redPointView];
+    
+    UIButton * deletBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    deletBtn.frame = CGRectMake(10, 10, 20, 20);
+    deletBtn.backgroundColor = [UIColor redColor];
+    deletBtn.layer.cornerRadius = 10;
+    deletBtn.layer.masksToBounds = YES;
+    [deletBtn addTarget:self action:@selector(deleteCollectionFun) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:deletBtn];
+}
+
+- (void)deleteCollectionFun {
+    if (self.deleteDelegate && [self.deleteDelegate respondsToSelector:@selector(modelCellEvent:)]) {
+        [self.deleteDelegate modelCellEvent:self];
+    }
 }
 
 - (void)setItemText:(NSString *)item {

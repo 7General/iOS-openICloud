@@ -13,7 +13,7 @@
 
 static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseIdentifier";
 
-@interface MainViewController ()
+@interface MainViewController ()<CustomCollectionViewDelete>
 
 @property (nonatomic, strong) NSMutableArray * departArry;
 @property (nonatomic, strong) NSMutableArray * roomArry;
@@ -24,7 +24,7 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     
     [self addData];
     
@@ -39,6 +39,8 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
     [self.collectionView addGestureRecognizer:longPressGesture];
 }
+
+
 
 
 - (void)longPressAction:(UILongPressGestureRecognizer *)longPress {
@@ -187,12 +189,17 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GZIMWorkspaceItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:GZWorkspaceItemReuseIdentifier forIndexPath:indexPath];
     
-    
+    cell.deleteDelegate = self;
 //        UIColor * randomColor= [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
 //        cell.backgroundColor = randomColor;
     [cell setItemText:self.departArry[indexPath.item]];
     
     return cell;
+}
+- (void)modelCellEvent:(GZIMWorkspaceItemCell *)cell {
+    NSIndexPath * indexPath = [self.collectionView indexPathForCell:cell];
+    [self.departArry removeObjectAtIndex:indexPath.row];
+    [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
 }
 
 /* 点击 */
