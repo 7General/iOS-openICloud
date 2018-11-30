@@ -10,6 +10,7 @@
 #import "GZIMWorkspaceHeader.h"
 #import "GZIMWorkspaceSectionFoot.h"
 #import "GZIMWorkspaceItemCell.h"
+#import "UIScrollHeaderViewController.h"
 
 static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseIdentifier";
 
@@ -24,10 +25,7 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    
     [self addData];
-    
     
 //    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     /* 注册header和foot */
@@ -38,7 +36,33 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
     
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
     [self.collectionView addGestureRecognizer:longPressGesture];
+    
+    
+    
+    UIBarButtonItem * rightBar = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemEdit) target:self action:@selector(scrollViewFun)];
+    self.navigationItem.rightBarButtonItem = rightBar;
+    
+    
+//    [self move:2 a:@"A" b:@"B" c:@"C"];
+//    NSLog(@"========================");
+//    [self move:3 a:@"A" b:@"B" c:@"C"];
 }
+- (void)scrollViewFun {
+    NSLog(@">>");
+    UIScrollHeaderViewController * scroll = [[UIScrollHeaderViewController alloc] init];
+    [self.navigationController pushViewController:scroll animated:YES];
+}
+
+//- (void)move:(NSInteger)n a:(NSString *)a b:(NSString *)b c:(NSString *)c {
+//    NSLog(@">>>%ld",n);
+//    if (n == 1) {
+//        NSLog(@"move:%@,%@,%@",a,@"->",c);
+//    } else {
+//        [self move:n - 1 a:a b:c c:b];
+//        [self move:1 a:a b:b c:c];
+//        [self move:n -1 a:b b:a c:c];
+//    }
+//}
 
 
 

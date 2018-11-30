@@ -32,11 +32,11 @@
     [self.contentView addSubview:itemName];
     self.itemName = itemName;
     
-    UIImageView * redPointView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(itemName.frame) - 10, (itemName.frame.origin.y) - 10, 10, 10)];
-    redPointView.backgroundColor = [UIColor redColor];
-    redPointView.layer.cornerRadius = 5;
-    redPointView.layer.masksToBounds = YES;
-    [self.contentView addSubview:redPointView];
+//    UIImageView * redPointView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(itemName.frame) - 10, (itemName.frame.origin.y) - 10, 10, 10)];
+//    redPointView.backgroundColor = [UIColor redColor];
+//    redPointView.layer.cornerRadius = 5;
+//    redPointView.layer.masksToBounds = YES;
+//    [self.contentView addSubview:redPointView];
     
     UIButton * deletBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     deletBtn.frame = CGRectMake(10, 10, 20, 20);

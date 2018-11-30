@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2222D52621B10F45008A21DF /* GZIMCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2222D52121B10F45008A21DF /* GZIMCarousel.m */; };
+		2222D52721B10F45008A21DF /* GZIMFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2222D52421B10F45008A21DF /* GZIMFlowLayout.m */; };
+		2222D52A21B11218008A21DF /* UIScrollHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2222D52921B11218008A21DF /* UIScrollHeaderViewController.m */; };
 		2265912A219AC90400C9E8A8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22659129219AC90400C9E8A8 /* AppDelegate.m */; };
 		2265912D219AC90400C9E8A8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2265912C219AC90400C9E8A8 /* ViewController.m */; };
 		22659130219AC90400C9E8A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2265912E219AC90400C9E8A8 /* Main.storyboard */; };
@@ -21,6 +24,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2222D52021B10F45008A21DF /* GZIMCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZIMCarousel.h; sourceTree = "<group>"; };
+		2222D52121B10F45008A21DF /* GZIMCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZIMCarousel.m; sourceTree = "<group>"; };
+		2222D52221B10F45008A21DF /* GZIMCarouselProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZIMCarouselProtocol.h; sourceTree = "<group>"; };
+		2222D52321B10F45008A21DF /* GZIMFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZIMFlowLayout.h; sourceTree = "<group>"; };
+		2222D52421B10F45008A21DF /* GZIMFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZIMFlowLayout.m; sourceTree = "<group>"; };
+		2222D52521B10F45008A21DF /* GZIMCarouselHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZIMCarouselHeader.h; sourceTree = "<group>"; };
+		2222D52821B11218008A21DF /* UIScrollHeaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIScrollHeaderViewController.h; sourceTree = "<group>"; };
+		2222D52921B11218008A21DF /* UIScrollHeaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIScrollHeaderViewController.m; sourceTree = "<group>"; };
 		22659125219AC90400C9E8A8 /* UICollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UICollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22659128219AC90400C9E8A8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22659129219AC90400C9E8A8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -54,6 +65,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2222D51F21B10F1A008A21DF /* UICollectionScrollHeader */ = {
+			isa = PBXGroup;
+			children = (
+				2222D52021B10F45008A21DF /* GZIMCarousel.h */,
+				2222D52121B10F45008A21DF /* GZIMCarousel.m */,
+				2222D52521B10F45008A21DF /* GZIMCarouselHeader.h */,
+				2222D52221B10F45008A21DF /* GZIMCarouselProtocol.h */,
+				2222D52321B10F45008A21DF /* GZIMFlowLayout.h */,
+				2222D52421B10F45008A21DF /* GZIMFlowLayout.m */,
+			);
+			path = UICollectionScrollHeader;
+			sourceTree = "<group>";
+		};
 		2265911C219AC90400C9E8A8 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +97,7 @@
 		22659127219AC90400C9E8A8 /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				2222D51F21B10F1A008A21DF /* UICollectionScrollHeader */,
 				2265913F219AC96500C9E8A8 /* UICollectionView */,
 				2265913E219AC95600C9E8A8 /* Basic */,
 				2265912E219AC90400C9E8A8 /* Main.storyboard */,
@@ -103,6 +128,8 @@
 				22659144219AC9F500C9E8A8 /* GZIMCollectionViewController.m */,
 				22659140219AC98100C9E8A8 /* MainViewController.h */,
 				22659141219AC98100C9E8A8 /* MainViewController.m */,
+				2222D52821B11218008A21DF /* UIScrollHeaderViewController.h */,
+				2222D52921B11218008A21DF /* UIScrollHeaderViewController.m */,
 			);
 			path = UICollectionView;
 			sourceTree = "<group>";
@@ -194,10 +221,13 @@
 				2265912D219AC90400C9E8A8 /* ViewController.m in Sources */,
 				22659145219AC9F500C9E8A8 /* GZIMCollectionViewController.m in Sources */,
 				22659138219AC90400C9E8A8 /* main.m in Sources */,
+				2222D52721B10F45008A21DF /* GZIMFlowLayout.m in Sources */,
 				2265914C219ACB7500C9E8A8 /* GZIMWorkspaceSectionFoot.m in Sources */,
 				2265912A219AC90400C9E8A8 /* AppDelegate.m in Sources */,
+				2222D52A21B11218008A21DF /* UIScrollHeaderViewController.m in Sources */,
 				22659142219AC98100C9E8A8 /* MainViewController.m in Sources */,
 				22659149219ACB6500C9E8A8 /* GZIMWorkspaceHeader.m in Sources */,
+				2222D52621B10F45008A21DF /* GZIMCarousel.m in Sources */,
 				2265914F219ACCCE00C9E8A8 /* GZIMWorkspaceItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
