@@ -8,12 +8,17 @@
 
 #import "UIScrollHeaderViewController.h"
 #import "GZIMCarousel.h"
+#import "CustomPageControl.h"
 
-@interface UIScrollHeaderViewController ()<GZIMCarouselDelegate,GZIMCarouselDatasource>
+
+@interface UIScrollHeaderViewController ()<GZIMCarouselDelegate,GZIMCarouselDatasource,GZIMCarouselPageControlProtocol>
 
 @property (nonatomic, strong) GZIMCarousel * carousel;
 
 @property (nonatomic, strong) UIView *animationView;
+
+@property (nonatomic, strong) CustomPageControl * customPageController;
+
 
 @end
 
@@ -34,32 +39,29 @@
         self.carousel = nil;
     }
     
+    
+    
     [self.view addSubview:self.animationView];
+
+    self.customPageController = [[CustomPageControl alloc] initWithFrame:CGRectMake(0, 110, self.animationView.frame.size.width, 40)];
+    self.customPageController.backgroundColor =[UIColor redColor];
+//    [self.view addSubview:self.customPageController];
+    
+    
     GZIMFlowLayout *flowLayout = [[GZIMFlowLayout alloc] initWithStyle:CWCarouselStyle_H_1];
     flowLayout.itemWidth = 330;
     flowLayout.itemSpace_H = 10;
     
-    GZIMCarousel * carousel = [[GZIMCarousel alloc] initWithFrame:CGRectZero
+    GZIMCarousel * carousel = [[GZIMCarousel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 110)
                                                          delegate:self
                                                        datasource:self
                                                        flowLayout:flowLayout];
-//    carousel.translatesAutoresizingMaskIntoConstraints = NO;
+
+    carousel.customPageControl = self.customPageController;
     [self.animationView addSubview:carousel];
-    carousel.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 110);
-    
-//    NSDictionary *dic = @{@"view" : carousel};
-//    [self.animationView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[view]-0-|"
-//                                                                               options:kNilOptions
-//                                                                               metrics:nil
-//                                                                                 views:dic]];
-//    [self.animationView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[view]-0-|"
-//                                                                               options:kNilOptions
-//                                                                               metrics:nil
-//                                                                                 views:dic]];
-    
     
     carousel.isAuto = YES;
-    carousel.autoTimInterval = 2;
+    carousel.autoTimInterval = 4;
     carousel.endless = YES;
     carousel.backgroundColor = [UIColor whiteColor];
     [carousel registerViewClass:[UICollectionViewCell class] identifier:@"cellId"];
@@ -75,6 +77,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.carousel controllerWillDisAppear];
+    [self.animationView removeFromSuperview];
 }
 
 #pragma mark - delegate
@@ -107,16 +110,15 @@
 
 
 - (void)GZIMCarousel:(GZIMCarousel *)carousel didSelectedAtIndex:(NSInteger)index {
-    
+    NSLog(@"----->>>%ld",index);
 }
-
 
 
 
 - (UIView *)animationView{
     if(!_animationView) {
         _animationView = [[UIView alloc] initWithFrame:CGRectMake(0, 240, CGRectGetWidth(self.view.frame), 110)];
-        _animationView.backgroundColor = [UIColor grayColor];
+        _animationView.backgroundColor = [UIColor greenColor];
     }
     return _animationView;
 }

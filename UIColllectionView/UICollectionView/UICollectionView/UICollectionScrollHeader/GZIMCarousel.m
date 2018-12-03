@@ -83,6 +83,7 @@
         [self pause];
     }
     [self adjustErrorCell:YES];
+    [self removeFromSuperview];
 }
 
 - (void)dealloc {
@@ -183,7 +184,8 @@
         self.currentIndexPath = [NSIndexPath indexPathForRow:self.currentIndexPath.row - 1 inSection:self.currentIndexPath.section];
     }else if (velocity.x == 0) {
         //还有一种情况,当滑动后手指按住不放,然后松开,此时的加速度其实是为0的
-        [self adjustErrorCell:NO];
+//        [self adjustErrorCell:NO];
+        [self didSelectItemCellAdjustErrorCell:NO forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     }
 }
 
@@ -319,6 +321,7 @@
 
 - (void)adjustErrorCell:(BOOL)isScroll {
     NSArray <NSIndexPath *> *indexPaths = [self.carouselView indexPathsForVisibleItems];
+    
     NSMutableArray <UICollectionViewLayoutAttributes *> *attriArr = [NSMutableArray arrayWithCapacity:indexPaths.count];
     [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         UICollectionViewLayoutAttributes *attri = [self.carouselView layoutAttributesForItemAtIndexPath:obj];
@@ -335,6 +338,7 @@
         obj.zIndex = 0;
         if(ABS(minSpace) > ABS(obj.center.x - centerX) && shouldSet) {
             minSpace = obj.center.x - centerX;
+            NSLog(@"\n\n\n----currentIndexPath");
             self.currentIndexPath = obj.indexPath;
         }
     }];
@@ -342,6 +346,14 @@
         [self scrollViewWillBeginDecelerating:self.carouselView];
     }
 }
+
+- (void)didSelectItemCellAdjustErrorCell:(BOOL)isScroll forIndexPath:(NSIndexPath*)indexPath{
+    if(isScroll) {
+        self.self.currentIndexPath = indexPath;
+        [self scrollViewWillBeginDecelerating:self.carouselView];
+    }
+}
+
 
 - (void)play {
     [self stop];
@@ -432,7 +444,12 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self adjustErrorCell:YES];
+//    [self adjustErrorCell:YES];
+//    self.currentIndexPath = indexPath;
+//    [self didSelectItemCellAdjustErrorCell:YES];
+    [self didSelectItemCellAdjustErrorCell:YES forIndexPath:indexPath];
+    
+//    return;
     if(self.delegate &&
        [self.delegate respondsToSelector:@selector(GZIMCarousel:didSelectedAtIndex:)]) {
         [self.delegate GZIMCarousel:self didSelectedAtIndex:[self caculateIndex:indexPath.row]];
@@ -462,29 +479,12 @@
 #pragma mark - < getter >
 - (UICollectionView *)carouselView {
     if(!_carouselView) {
-//        self.carouselView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.addHeight * 0.5, self.frame.size.width, self.frame.size.height - self.addHeight) collectionViewLayout:self.flowLayout];
-        self.carouselView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.flowLayout];
+        self.carouselView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) collectionViewLayout:self.flowLayout];
         _carouselView.clipsToBounds = NO;
         _carouselView.delegate = self;
         _carouselView.dataSource = self;
-        _carouselView.translatesAutoresizingMaskIntoConstraints = NO;
         [_carouselView registerClass:[GZIMTempleteCell class] forCellWithReuseIdentifier:@"tempCell"];
         [self addSubview:_carouselView];
-        
-        NSDictionary *views = @{@"view" : self.carouselView};
-        NSDictionary *margins = @{@"top" : @(self.addHeight * 0.5),
-                                  @"bottom" : @(self.addHeight * 0.5)
-                                  };
-        NSString *str = @"H:|-0-[view]-0-|";
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:str
-                                                                     options:kNilOptions
-                                                                     metrics:margins
-                                                                       views:views]];
-        str = @"V:|-top-[view]-top-|";
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:str
-                                                                     options:kNilOptions
-                                                                     metrics:margins
-                                                                       views:views]];
     }
     return _carouselView;
 }
@@ -508,6 +508,7 @@
     if(self.datasource &&
        [self.datasource respondsToSelector:@selector(numbersForCarousel)]) {
         self.pageControl.numberOfPages = [self.datasource numbersForCarousel];
+        self.customPageControl.pageNumbers = [self.datasource numbersForCarousel];
         return self.pageControl.numberOfPages;
     }
     return 0;

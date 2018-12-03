@@ -73,13 +73,13 @@
  2. 位置可以自己根据frame自行调整
  3. 如果不想将其添加在carousel上,请自行通过调用目标父视图的addSubview方法添加到其他父视图上
  */
-@property (nonatomic, strong) UIPageControl               *pageControl;
+@property (nonatomic, strong) UIPageControl               * _Nullable pageControl;
 
 
 /**
  自定义的pageControl
  */
-@property (nonatomic, strong) UIView<GZIMCarouselPageControlProtocol> *customPageControl;
+@property (nonatomic, strong) UIView<GZIMCarouselPageControlProtocol> * _Nullable customPageControl;
 
 
 /**

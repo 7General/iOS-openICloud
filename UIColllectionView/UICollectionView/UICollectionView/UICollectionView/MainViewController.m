@@ -78,11 +78,13 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
                 break;
             }
             [self.collectionView beginInteractiveMovementForItemAtIndexPath:indexPath];
+            [self beginMove];
         }
             break;
         case UIGestureRecognizerStateChanged:
         {
             [self.collectionView updateInteractiveMovementTargetPosition:point];
+            [self beginMove];
         }
             break;
         case UIGestureRecognizerStateEnded:
@@ -92,12 +94,13 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
             } else {
                [self.collectionView endInteractiveMovement];
             }
-            
+            [self endMove];
         }
             break;
         case UIGestureRecognizerStateCancelled:
         {
             [self.collectionView cancelInteractiveMovement];
+            [self endMove];
         }
             break;
             
@@ -107,7 +110,7 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
 }
 
 #pragma mark - 拖动
-// 在开始移动时会调用此代理方法，
+ //在开始移动时会调用此代理方法，
 -(BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
     //根据indexpath判断单元格是否可以移动，如果都可以移动，直接就返回YES ,不能移动的返回NO
     if (0 == indexPath.item || self.departArry.count - 1 == indexPath.item) {
@@ -121,10 +124,10 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
      *sourceIndexPath 原始数据 indexpath
      * destinationIndexPath 移动到目标数据的 indexPath
      */
-    if (0 == destinationIndexPath.item || self.departArry.count - 1 == sourceIndexPath.item) return;
-    NSString * insertItem = self.departArry[sourceIndexPath.item];
-    [self.departArry removeObjectAtIndex:sourceIndexPath.item];
-    [self.departArry insertObject:insertItem atIndex:destinationIndexPath.item];
+    if (0 == destinationIndexPath.row || self.departArry.count - 1 == sourceIndexPath.row) return;
+    NSString * insertItem = self.departArry[sourceIndexPath.row];
+    [self.departArry removeObjectAtIndex:sourceIndexPath.row];
+    [self.departArry insertObject:insertItem atIndex:destinationIndexPath.row];
 }
 
 
@@ -157,7 +160,7 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
     [self.roomArry addObject:@"5"];
     [self.roomArry addObject:@"6"];
     [self.roomArry addObject:@"7"];
-    
+
     [self.userArry addObject:@"1"];
     [self.userArry addObject:@"2"];
     [self.userArry addObject:@"3"];
@@ -193,12 +196,12 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
         GZIMWorkspaceHeader * headView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:GZIMCollectionViewHeaderIdentifier forIndexPath:indexPath];
         return headView;
     }
-    
+
     if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
         GZIMWorkspaceSectionFoot * footView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:GZIMCollectionViewFooterIdentifier forIndexPath:indexPath];
         return footView;
     }
-    
+
     return nil;
 }
 
@@ -213,10 +216,10 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GZIMWorkspaceItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:GZWorkspaceItemReuseIdentifier forIndexPath:indexPath];
     
-    cell.deleteDelegate = self;
+//    cell.deleteDelegate = self;
 //        UIColor * randomColor= [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
 //        cell.backgroundColor = randomColor;
-    [cell setItemText:self.departArry[indexPath.item]];
+    [cell setItemText:self.departArry[indexPath.row]];
     
     return cell;
 }
@@ -242,7 +245,21 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
     flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);//上左下右
     return flowLayout;
 }
-
+#pragma mark - 处理抖动动画
+-(void)beginMove{
+    for (GZIMWorkspaceItemCell * cell in [self.collectionView visibleCells]) {
+//        cell.disButton.hidden = NO;
+        [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionRepeat | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionAutoreverse animations:^{
+            cell.transform = CGAffineTransformMakeRotation(0.05);
+        } completion:nil];
+    }
+}
+-(void)endMove{
+    for (GZIMWorkspaceItemCell * cell in [self.collectionView visibleCells]) {
+//        cell.disButton.hidden = YES;
+        [cell.layer removeAllAnimations];
+    }
+}
 
 
 

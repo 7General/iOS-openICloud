@@ -10,8 +10,12 @@
 		2222D52621B10F45008A21DF /* GZIMCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2222D52121B10F45008A21DF /* GZIMCarousel.m */; };
 		2222D52721B10F45008A21DF /* GZIMFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2222D52421B10F45008A21DF /* GZIMFlowLayout.m */; };
 		2222D52A21B11218008A21DF /* UIScrollHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2222D52921B11218008A21DF /* UIScrollHeaderViewController.m */; };
+		2222D52F21B13352008A21DF /* GZIMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2222D52E21B13352008A21DF /* GZIMPageControl.m */; };
+		2222D53221B13AEE008A21DF /* CustomPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2222D53121B13AEE008A21DF /* CustomPageControl.m */; };
+		2222D53521B4D116008A21DF /* UIView+GZCSAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2222D53421B4D116008A21DF /* UIView+GZCSAddition.m */; };
+		2222D53B21B4DC83008A21DF /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2222D53A21B4DC83008A21DF /* CollectionViewController.m */; };
+		2222D54321B515E4008A21DF /* GZIMAnimatedPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2222D53F21B515E3008A21DF /* GZIMAnimatedPageControl.m */; };
 		2265912A219AC90400C9E8A8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22659129219AC90400C9E8A8 /* AppDelegate.m */; };
-		2265912D219AC90400C9E8A8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2265912C219AC90400C9E8A8 /* ViewController.m */; };
 		22659130219AC90400C9E8A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2265912E219AC90400C9E8A8 /* Main.storyboard */; };
 		22659132219AC90400C9E8A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22659131219AC90400C9E8A8 /* Assets.xcassets */; };
 		22659135219AC90400C9E8A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22659133219AC90400C9E8A8 /* LaunchScreen.storyboard */; };
@@ -32,11 +36,19 @@
 		2222D52521B10F45008A21DF /* GZIMCarouselHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZIMCarouselHeader.h; sourceTree = "<group>"; };
 		2222D52821B11218008A21DF /* UIScrollHeaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIScrollHeaderViewController.h; sourceTree = "<group>"; };
 		2222D52921B11218008A21DF /* UIScrollHeaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIScrollHeaderViewController.m; sourceTree = "<group>"; };
+		2222D52D21B13352008A21DF /* GZIMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZIMPageControl.h; sourceTree = "<group>"; };
+		2222D52E21B13352008A21DF /* GZIMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZIMPageControl.m; sourceTree = "<group>"; };
+		2222D53021B13AEE008A21DF /* CustomPageControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomPageControl.h; sourceTree = "<group>"; };
+		2222D53121B13AEE008A21DF /* CustomPageControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomPageControl.m; sourceTree = "<group>"; };
+		2222D53321B4D115008A21DF /* UIView+GZCSAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GZCSAddition.h"; sourceTree = "<group>"; };
+		2222D53421B4D116008A21DF /* UIView+GZCSAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GZCSAddition.m"; sourceTree = "<group>"; };
+		2222D53921B4DC83008A21DF /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		2222D53A21B4DC83008A21DF /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		2222D53F21B515E3008A21DF /* GZIMAnimatedPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZIMAnimatedPageControl.m; sourceTree = "<group>"; };
+		2222D54121B515E3008A21DF /* GZIMAnimatedPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZIMAnimatedPageControl.h; sourceTree = "<group>"; };
 		22659125219AC90400C9E8A8 /* UICollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UICollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22659128219AC90400C9E8A8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22659129219AC90400C9E8A8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2265912B219AC90400C9E8A8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2265912C219AC90400C9E8A8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2265912F219AC90400C9E8A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22659131219AC90400C9E8A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22659134219AC90400C9E8A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,6 +90,21 @@
 			path = UICollectionScrollHeader;
 			sourceTree = "<group>";
 		};
+		2222D52C21B1333D008A21DF /* UIPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				2222D54121B515E3008A21DF /* GZIMAnimatedPageControl.h */,
+				2222D53F21B515E3008A21DF /* GZIMAnimatedPageControl.m */,
+				2222D53321B4D115008A21DF /* UIView+GZCSAddition.h */,
+				2222D53421B4D116008A21DF /* UIView+GZCSAddition.m */,
+				2222D52D21B13352008A21DF /* GZIMPageControl.h */,
+				2222D52E21B13352008A21DF /* GZIMPageControl.m */,
+				2222D53021B13AEE008A21DF /* CustomPageControl.h */,
+				2222D53121B13AEE008A21DF /* CustomPageControl.m */,
+			);
+			path = UIPageControl;
+			sourceTree = "<group>";
+		};
 		2265911C219AC90400C9E8A8 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +124,7 @@
 		22659127219AC90400C9E8A8 /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				2222D52C21B1333D008A21DF /* UIPageControl */,
 				2222D51F21B10F1A008A21DF /* UICollectionScrollHeader */,
 				2265913F219AC96500C9E8A8 /* UICollectionView */,
 				2265913E219AC95600C9E8A8 /* Basic */,
@@ -114,8 +142,6 @@
 			children = (
 				22659128219AC90400C9E8A8 /* AppDelegate.h */,
 				22659129219AC90400C9E8A8 /* AppDelegate.m */,
-				2265912B219AC90400C9E8A8 /* ViewController.h */,
-				2265912C219AC90400C9E8A8 /* ViewController.m */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -130,6 +156,8 @@
 				22659141219AC98100C9E8A8 /* MainViewController.m */,
 				2222D52821B11218008A21DF /* UIScrollHeaderViewController.h */,
 				2222D52921B11218008A21DF /* UIScrollHeaderViewController.m */,
+				2222D53921B4DC83008A21DF /* CollectionViewController.h */,
+				2222D53A21B4DC83008A21DF /* CollectionViewController.m */,
 			);
 			path = UICollectionView;
 			sourceTree = "<group>";
@@ -218,12 +246,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2265912D219AC90400C9E8A8 /* ViewController.m in Sources */,
+				2222D53221B13AEE008A21DF /* CustomPageControl.m in Sources */,
+				2222D54321B515E4008A21DF /* GZIMAnimatedPageControl.m in Sources */,
 				22659145219AC9F500C9E8A8 /* GZIMCollectionViewController.m in Sources */,
+				2222D53521B4D116008A21DF /* UIView+GZCSAddition.m in Sources */,
 				22659138219AC90400C9E8A8 /* main.m in Sources */,
 				2222D52721B10F45008A21DF /* GZIMFlowLayout.m in Sources */,
 				2265914C219ACB7500C9E8A8 /* GZIMWorkspaceSectionFoot.m in Sources */,
 				2265912A219AC90400C9E8A8 /* AppDelegate.m in Sources */,
+				2222D53B21B4DC83008A21DF /* CollectionViewController.m in Sources */,
+				2222D52F21B13352008A21DF /* GZIMPageControl.m in Sources */,
 				2222D52A21B11218008A21DF /* UIScrollHeaderViewController.m in Sources */,
 				22659142219AC98100C9E8A8 /* MainViewController.m in Sources */,
 				22659149219ACB6500C9E8A8 /* GZIMWorkspaceHeader.m in Sources */,
