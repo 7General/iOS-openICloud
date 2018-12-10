@@ -1,0 +1,1 @@
+../../../../TencentOpenAPI/TencentOpenAPI.framework/Headers/TencentApiInterface.h

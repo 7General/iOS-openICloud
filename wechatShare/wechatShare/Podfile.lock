@@ -1,16 +1,20 @@
 PODS:
+  - TencentOpenAPI (1.0.0)
   - WechatOpenSDK (1.8.3)
 
 DEPENDENCIES:
+  - TencentOpenAPI
   - WechatOpenSDK
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - TencentOpenAPI
     - WechatOpenSDK
 
 SPEC CHECKSUMS:
+  TencentOpenAPI: ddc6fb0134b25c9078ccd27fd2259ed0cc30a49a
   WechatOpenSDK: 3117412f8aafde4758cac1e8d20b93c67cafcfef
 
-PODFILE CHECKSUM: 38ec32c813e0a29396e71d76254da255688735c6
+PODFILE CHECKSUM: 2f6e0acd16dabb5e7aecb237e82d7796bce765a8
 
 COCOAPODS: 1.5.3

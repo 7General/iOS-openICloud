@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "OSShareHelper.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [[OSShareHelper shareInstance] setShareSDKKeysWithQQID:@"1104626856" wechatID:@"wxdfaf9300be62ca4a" weiBoID:@""];
     return YES;
 }
 
@@ -45,6 +46,11 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [[OSShareHelper shareInstance] handleOpenUrl:url];
 }
 
 

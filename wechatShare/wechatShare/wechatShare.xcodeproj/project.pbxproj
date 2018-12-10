@@ -13,6 +13,9 @@
 		22F1FB7021BE473200F07F7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F1FB6F21BE473200F07F7D /* Assets.xcassets */; };
 		22F1FB7321BE473200F07F7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F1FB7121BE473200F07F7D /* LaunchScreen.storyboard */; };
 		22F1FB7621BE473200F07F7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FB7521BE473200F07F7D /* main.m */; };
+		22F1FB7F21BE4AA100F07F7D /* OSWeChatShareSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FB7E21BE4AA100F07F7D /* OSWeChatShareSDK.m */; };
+		22F1FB8221BE4D3500F07F7D /* OSShareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FB8121BE4D3500F07F7D /* OSShareHelper.m */; };
+		22F1FB8521BE554500F07F7D /* OSQQShareSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FB8421BE554500F07F7D /* OSQQShareSDK.m */; };
 		33D3708548A0CB28988FC028 /* libPods-wechatShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30643C7BF3E09E9007DAABD3 /* libPods-wechatShare.a */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +31,12 @@
 		22F1FB7221BE473200F07F7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22F1FB7421BE473200F07F7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22F1FB7521BE473200F07F7D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		22F1FB7D21BE4AA100F07F7D /* OSWeChatShareSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSWeChatShareSDK.h; sourceTree = "<group>"; };
+		22F1FB7E21BE4AA100F07F7D /* OSWeChatShareSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSWeChatShareSDK.m; sourceTree = "<group>"; };
+		22F1FB8021BE4D3500F07F7D /* OSShareHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSShareHelper.h; sourceTree = "<group>"; };
+		22F1FB8121BE4D3500F07F7D /* OSShareHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSShareHelper.m; sourceTree = "<group>"; };
+		22F1FB8321BE554500F07F7D /* OSQQShareSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSQQShareSDK.h; sourceTree = "<group>"; };
+		22F1FB8421BE554500F07F7D /* OSQQShareSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSQQShareSDK.m; sourceTree = "<group>"; };
 		30643C7BF3E09E9007DAABD3 /* libPods-wechatShare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wechatShare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF78CFF6D99A717F8295833F /* Pods-wechatShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wechatShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wechatShare/Pods-wechatShare.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +74,7 @@
 		22F1FB6521BE473200F07F7D /* wechatShare */ = {
 			isa = PBXGroup;
 			children = (
+				22F1FB7C21BE4A7E00F07F7D /* info */,
 				22F1FB6621BE473200F07F7D /* AppDelegate.h */,
 				22F1FB6721BE473200F07F7D /* AppDelegate.m */,
 				22F1FB6921BE473200F07F7D /* ViewController.h */,
@@ -76,6 +86,19 @@
 				22F1FB7521BE473200F07F7D /* main.m */,
 			);
 			path = wechatShare;
+			sourceTree = "<group>";
+		};
+		22F1FB7C21BE4A7E00F07F7D /* info */ = {
+			isa = PBXGroup;
+			children = (
+				22F1FB7D21BE4AA100F07F7D /* OSWeChatShareSDK.h */,
+				22F1FB7E21BE4AA100F07F7D /* OSWeChatShareSDK.m */,
+				22F1FB8021BE4D3500F07F7D /* OSShareHelper.h */,
+				22F1FB8121BE4D3500F07F7D /* OSShareHelper.m */,
+				22F1FB8321BE554500F07F7D /* OSQQShareSDK.h */,
+				22F1FB8421BE554500F07F7D /* OSQQShareSDK.m */,
+			);
+			path = info;
 			sourceTree = "<group>";
 		};
 		9F06DB618B3B3AF63B2E2508 /* Frameworks */ = {
@@ -106,6 +129,7 @@
 				22F1FB5F21BE473200F07F7D /* Sources */,
 				22F1FB6021BE473200F07F7D /* Frameworks */,
 				22F1FB6121BE473200F07F7D /* Resources */,
+				1642A14591129B2605973613 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,6 +187,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1642A14591129B2605973613 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-wechatShare/Pods-wechatShare-resources.sh",
+				"${PODS_ROOT}/TencentOpenAPI/TencentOpenApi_IOS_Bundle.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TencentOpenApi_IOS_Bundle.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wechatShare/Pods-wechatShare-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		EF68BA4AE0078E5EE3CEA5CC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -188,9 +230,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22F1FB8221BE4D3500F07F7D /* OSShareHelper.m in Sources */,
 				22F1FB6B21BE473200F07F7D /* ViewController.m in Sources */,
 				22F1FB7621BE473200F07F7D /* main.m in Sources */,
+				22F1FB7F21BE4AA100F07F7D /* OSWeChatShareSDK.m in Sources */,
 				22F1FB6821BE473200F07F7D /* AppDelegate.m in Sources */,
+				22F1FB8521BE554500F07F7D /* OSQQShareSDK.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,9 +371,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QNBW2BT8S6;
 				INFOPLIST_FILE = wechatShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test.wechatShare;
+				PRODUCT_BUNDLE_IDENTIFIER = com.guazi.car;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -340,9 +387,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QNBW2BT8S6;
 				INFOPLIST_FILE = wechatShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test.wechatShare;
+				PRODUCT_BUNDLE_IDENTIFIER = com.guazi.car;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
