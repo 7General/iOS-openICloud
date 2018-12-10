@@ -836,7 +836,8 @@ typedef void(^WXLogBolock)(NSString * log);
 #pragma mark - WXWebpageObject
 /*! @brief 多媒体消息中包含的网页数据对象
  *
- * 微信终端和第三方程序之间传递消息中包含的网页数据对象。
+ * 微信终端和第
+ 三方程序之间传递消息中包含的网页数据对象。
  * @see WXMediaMessage
  */
 @interface WXWebpageObject : NSObject

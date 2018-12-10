@@ -23,12 +23,13 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     NSLog(@"-=---");
     /* 微信 */
-//    [[OSShareHelper shareInstance] shareTextMessage:@"ddddd" shareType:(OSShareTypeWXFriend) shareResult:^(BOOL result) {
+//    [[OSShareHelper shareInstance] shareTextMessage:@"爱我中华" shareType:(OSShareTypeWXFriend) shareResult:^(BOOL result) {
 //        NSLog(@"resoult");
 //    }];
     
     /* QQ */
-    [[OSShareHelper shareInstance] shareMediaMessageWithTitle:@"QQ分享" description:@"SQQQQ" thumbImage:nil shareURL:@"http://www.osjoin.com" shareType:OSShareTypeQQShare shareResult:^(BOOL result) {
+    
+    [[OSShareHelper shareInstance] shareMediaMessageWithTitle:@"QQ分享" description:@"中国虎东北浪" thumbImage:[UIImage imageNamed:@"123"] shareURL:@"http://www.osjoin.com/ios/70.html" shareType:OSShareTypeWXFriend shareResult:^(BOOL result) {
         NSLog(@"resoult,www.osjoin.com");
     }];
 }

@@ -98,7 +98,7 @@
 {
     WXWebpageObject *ext = [WXWebpageObject object];
     ext.webpageUrl = shareURL;
-    
+
     if (shareType == GZWeChatShareTypeFriend || shareType == GZWeChatShareTypeTimeline || shareType == GZWeChatShareTypeFavorite) {
         self.shareResult = shareResult;
         NSInteger scene = WXSceneSession;
