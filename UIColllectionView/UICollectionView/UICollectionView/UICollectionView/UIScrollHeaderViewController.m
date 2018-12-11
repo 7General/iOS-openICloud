@@ -32,14 +32,11 @@
 
 
 - (void)configUI {
-    
     if(self.carousel) {
         [self.carousel releaseTimer];
         [self.carousel removeFromSuperview];
         self.carousel = nil;
     }
-    
-    
     
     [self.view addSubview:self.animationView];
 
@@ -56,8 +53,7 @@
                                                          delegate:self
                                                        datasource:self
                                                        flowLayout:flowLayout];
-
-    carousel.customPageControl = self.customPageController;
+//    carousel.customPageControl = self.customPageController;
     [self.animationView addSubview:carousel];
     
     carousel.isAuto = YES;

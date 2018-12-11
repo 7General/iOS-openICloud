@@ -29,7 +29,7 @@
     
     /* QQ */
     
-    [[OSShareHelper shareInstance] shareMediaMessageWithTitle:@"QQ分享" description:@"中国虎东北浪" thumbImage:[UIImage imageNamed:@"123"] shareURL:@"http://www.osjoin.com/ios/70.html" shareType:OSShareTypeWXFriend shareResult:^(BOOL result) {
+    [[OSShareHelper shareInstance] shareMediaMessageWithTitle:@"QQ分享" description:@"中国虎东北浪中国虎东北浪中国虎东北浪中国虎东北浪中国虎东北浪中国虎东北浪123" thumbImage:[UIImage imageNamed:@"123"] shareURL:@"http://www.osjoin.com/ios/70.html" shareType:OSShareTypeWXFriend shareResult:^(BOOL result) {
         NSLog(@"resoult,www.osjoin.com");
     }];
 }

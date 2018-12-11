@@ -11,6 +11,7 @@
 #import "GZIMWorkspaceSectionFoot.h"
 #import "GZIMWorkspaceItemCell.h"
 #import "UIScrollHeaderViewController.h"
+#import "CollectionAnimateViewController.h"
 
 static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseIdentifier";
 
@@ -48,9 +49,11 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
 //    [self move:3 a:@"A" b:@"B" c:@"C"];
 }
 - (void)scrollViewFun {
-    NSLog(@">>");
-    UIScrollHeaderViewController * scroll = [[UIScrollHeaderViewController alloc] init];
-    [self.navigationController pushViewController:scroll animated:YES];
+    
+//    UIScrollHeaderViewController * scroll = [[UIScrollHeaderViewController alloc] init];
+//    [self.navigationController pushViewController:scroll animated:YES];
+    CollectionAnimateViewController * ani = [[CollectionAnimateViewController alloc] init];
+    [self.navigationController pushViewController:ani animated:YES];
 }
 
 //- (void)move:(NSInteger)n a:(NSString *)a b:(NSString *)b c:(NSString *)c {
