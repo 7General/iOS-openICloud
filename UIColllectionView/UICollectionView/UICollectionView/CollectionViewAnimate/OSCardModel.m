@@ -6,8 +6,8 @@
 //  Copyright © 2018年 zzg. All rights reserved.
 //
 
-#import "BJCardModel.h"
+#import "OSCardModel.h"
 
-@implementation BJCardModel
+@implementation OSCardModel
 
 @end

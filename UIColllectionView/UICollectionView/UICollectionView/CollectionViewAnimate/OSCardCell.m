@@ -6,15 +6,15 @@
 //  Copyright © 2018年 zzg. All rights reserved.
 //
 
-#import "BJCardCell.h"
+#import "OSCardCell.h"
 
-@interface BJCardCell()
+@interface OSCardCell()
 
 @property (nonatomic , strong) UILabel * titleLabel;
 
 @end
 
-@implementation BJCardCell
+@implementation OSCardCell
 
 +(NSString *)reuseIdentifier
 {

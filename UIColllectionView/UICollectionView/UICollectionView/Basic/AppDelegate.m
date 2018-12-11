@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "CollectionViewController.h"
+#import "CollectionAnimateViewController.h"
+#import "AnimateViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,9 +22,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    MainViewController * main = [[MainViewController alloc] init];
-    
+//    MainViewController * main = [[MainViewController alloc] init];
 //    CollectionViewController *main = [[CollectionViewController alloc] init];
+    
+//    CollectionAnimateViewController * main = [[CollectionAnimateViewController alloc] init];
+    AnimateViewController * main = [[AnimateViewController alloc] init];
     UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:main];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];

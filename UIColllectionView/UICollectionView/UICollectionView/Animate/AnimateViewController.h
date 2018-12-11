@@ -1,5 +1,5 @@
 //
-//  BJCardCell.h
+//  AnimateViewController.h
 //  UICollectionView
 //
 //  Created by zzg on 2018/12/11.
@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BJCardCell : UICollectionViewCell
-
-@property (nonatomic , strong) NSString * title;
-
-
-+(NSString *)reuseIdentifier;
+@interface AnimateViewController : UIViewController
 
 @end

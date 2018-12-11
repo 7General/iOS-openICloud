@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BJCardModel : NSObject
+@interface OSCardModel : NSObject
 @property (nonatomic , strong) NSString * indexStr;
 @end

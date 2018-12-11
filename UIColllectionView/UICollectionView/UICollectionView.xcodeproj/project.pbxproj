@@ -26,9 +26,10 @@
 		2265914C219ACB7500C9E8A8 /* GZIMWorkspaceSectionFoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2265914B219ACB7500C9E8A8 /* GZIMWorkspaceSectionFoot.m */; };
 		2265914F219ACCCE00C9E8A8 /* GZIMWorkspaceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2265914E219ACCCE00C9E8A8 /* GZIMWorkspaceItemCell.m */; };
 		22F1FB9F21BF986A00F07F7D /* CollectionAnimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FB9E21BF986A00F07F7D /* CollectionAnimateViewController.m */; };
-		22F1FBA321BF995A00F07F7D /* BJCardViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FBA221BF995A00F07F7D /* BJCardViewLayout.m */; };
-		22F1FBA621BF9E5600F07F7D /* BJCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FBA521BF9E5600F07F7D /* BJCardModel.m */; };
-		22F1FBA921BF9E8200F07F7D /* BJCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FBA821BF9E8200F07F7D /* BJCardCell.m */; };
+		22F1FBA321BF995A00F07F7D /* OSCardViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FBA221BF995A00F07F7D /* OSCardViewLayout.m */; };
+		22F1FBA621BF9E5600F07F7D /* OSCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FBA521BF9E5600F07F7D /* OSCardModel.m */; };
+		22F1FBA921BF9E8200F07F7D /* OSCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FBA821BF9E8200F07F7D /* OSCardCell.m */; };
+		22F1FBAD21BFBCD300F07F7D /* AnimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FBAC21BFBCD300F07F7D /* AnimateViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,12 +71,14 @@
 		2265914E219ACCCE00C9E8A8 /* GZIMWorkspaceItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZIMWorkspaceItemCell.m; sourceTree = "<group>"; };
 		22F1FB9D21BF986A00F07F7D /* CollectionAnimateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionAnimateViewController.h; sourceTree = "<group>"; };
 		22F1FB9E21BF986A00F07F7D /* CollectionAnimateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionAnimateViewController.m; sourceTree = "<group>"; };
-		22F1FBA121BF995A00F07F7D /* BJCardViewLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJCardViewLayout.h; sourceTree = "<group>"; };
-		22F1FBA221BF995A00F07F7D /* BJCardViewLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BJCardViewLayout.m; sourceTree = "<group>"; };
-		22F1FBA421BF9E5600F07F7D /* BJCardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJCardModel.h; sourceTree = "<group>"; };
-		22F1FBA521BF9E5600F07F7D /* BJCardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BJCardModel.m; sourceTree = "<group>"; };
-		22F1FBA721BF9E8200F07F7D /* BJCardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJCardCell.h; sourceTree = "<group>"; };
-		22F1FBA821BF9E8200F07F7D /* BJCardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BJCardCell.m; sourceTree = "<group>"; };
+		22F1FBA121BF995A00F07F7D /* OSCardViewLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSCardViewLayout.h; sourceTree = "<group>"; };
+		22F1FBA221BF995A00F07F7D /* OSCardViewLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSCardViewLayout.m; sourceTree = "<group>"; };
+		22F1FBA421BF9E5600F07F7D /* OSCardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSCardModel.h; sourceTree = "<group>"; };
+		22F1FBA521BF9E5600F07F7D /* OSCardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSCardModel.m; sourceTree = "<group>"; };
+		22F1FBA721BF9E8200F07F7D /* OSCardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSCardCell.h; sourceTree = "<group>"; };
+		22F1FBA821BF9E8200F07F7D /* OSCardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSCardCell.m; sourceTree = "<group>"; };
+		22F1FBAB21BFBCD300F07F7D /* AnimateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimateViewController.h; sourceTree = "<group>"; };
+		22F1FBAC21BFBCD300F07F7D /* AnimateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimateViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,7 @@
 		22659127219AC90400C9E8A8 /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				22F1FBAA21BFBCBF00F07F7D /* Animate */,
 				22F1FBA021BF992800F07F7D /* CollectionViewAnimate */,
 				2222D52C21B1333D008A21DF /* UIPageControl */,
 				2222D51F21B10F1A008A21DF /* UICollectionScrollHeader */,
@@ -193,14 +197,23 @@
 			children = (
 				22F1FB9D21BF986A00F07F7D /* CollectionAnimateViewController.h */,
 				22F1FB9E21BF986A00F07F7D /* CollectionAnimateViewController.m */,
-				22F1FBA121BF995A00F07F7D /* BJCardViewLayout.h */,
-				22F1FBA221BF995A00F07F7D /* BJCardViewLayout.m */,
-				22F1FBA421BF9E5600F07F7D /* BJCardModel.h */,
-				22F1FBA521BF9E5600F07F7D /* BJCardModel.m */,
-				22F1FBA721BF9E8200F07F7D /* BJCardCell.h */,
-				22F1FBA821BF9E8200F07F7D /* BJCardCell.m */,
+				22F1FBA121BF995A00F07F7D /* OSCardViewLayout.h */,
+				22F1FBA221BF995A00F07F7D /* OSCardViewLayout.m */,
+				22F1FBA421BF9E5600F07F7D /* OSCardModel.h */,
+				22F1FBA521BF9E5600F07F7D /* OSCardModel.m */,
+				22F1FBA721BF9E8200F07F7D /* OSCardCell.h */,
+				22F1FBA821BF9E8200F07F7D /* OSCardCell.m */,
 			);
 			path = CollectionViewAnimate;
+			sourceTree = "<group>";
+		};
+		22F1FBAA21BFBCBF00F07F7D /* Animate */ = {
+			isa = PBXGroup;
+			children = (
+				22F1FBAB21BFBCD300F07F7D /* AnimateViewController.h */,
+				22F1FBAC21BFBCD300F07F7D /* AnimateViewController.m */,
+			);
+			path = Animate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,17 +288,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2222D53221B13AEE008A21DF /* CustomPageControl.m in Sources */,
-				22F1FBA621BF9E5600F07F7D /* BJCardModel.m in Sources */,
+				22F1FBA621BF9E5600F07F7D /* OSCardModel.m in Sources */,
 				2222D54321B515E4008A21DF /* GZIMAnimatedPageControl.m in Sources */,
-				22F1FBA321BF995A00F07F7D /* BJCardViewLayout.m in Sources */,
+				22F1FBA321BF995A00F07F7D /* OSCardViewLayout.m in Sources */,
 				22F1FB9F21BF986A00F07F7D /* CollectionAnimateViewController.m in Sources */,
 				22659145219AC9F500C9E8A8 /* GZIMCollectionViewController.m in Sources */,
 				2222D53521B4D116008A21DF /* UIView+GZCSAddition.m in Sources */,
 				22659138219AC90400C9E8A8 /* main.m in Sources */,
-				22F1FBA921BF9E8200F07F7D /* BJCardCell.m in Sources */,
+				22F1FBA921BF9E8200F07F7D /* OSCardCell.m in Sources */,
 				2222D52721B10F45008A21DF /* GZIMFlowLayout.m in Sources */,
 				2265914C219ACB7500C9E8A8 /* GZIMWorkspaceSectionFoot.m in Sources */,
 				2265912A219AC90400C9E8A8 /* AppDelegate.m in Sources */,
+				22F1FBAD21BFBCD300F07F7D /* AnimateViewController.m in Sources */,
 				2222D53B21B4DC83008A21DF /* CollectionViewController.m in Sources */,
 				2222D52F21B13352008A21DF /* GZIMPageControl.m in Sources */,
 				2222D52A21B11218008A21DF /* UIScrollHeaderViewController.m in Sources */,
