@@ -13,6 +13,7 @@
 		22F1FBD121C0F5DA00F07F7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F1FBD021C0F5DA00F07F7D /* Assets.xcassets */; };
 		22F1FBD421C0F5DA00F07F7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F1FBD221C0F5DA00F07F7D /* LaunchScreen.storyboard */; };
 		22F1FBD721C0F5DA00F07F7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FBD621C0F5DA00F07F7D /* main.m */; };
+		22F1FBDE21C0FB2A00F07F7D /* 282.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 22F1FBDD21C0FB2A00F07F7D /* 282.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		22F1FBD321C0F5DA00F07F7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22F1FBD521C0F5DA00F07F7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22F1FBD621C0F5DA00F07F7D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		22F1FBDD21C0FB2A00F07F7D /* 282.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 282.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				22F1FBD021C0F5DA00F07F7D /* Assets.xcassets */,
 				22F1FBD221C0F5DA00F07F7D /* LaunchScreen.storyboard */,
 				22F1FBD521C0F5DA00F07F7D /* Info.plist */,
+				22F1FBDD21C0FB2A00F07F7D /* 282.mp4 */,
 				22F1FBD621C0F5DA00F07F7D /* main.m */,
 			);
 			path = PIPVideo;
@@ -103,6 +106,11 @@
 					22F1FBC321C0F5DA00F07F7D = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -131,6 +139,7 @@
 			files = (
 				22F1FBD421C0F5DA00F07F7D /* LaunchScreen.storyboard in Resources */,
 				22F1FBD121C0F5DA00F07F7D /* Assets.xcassets in Resources */,
+				22F1FBDE21C0FB2A00F07F7D /* 282.mp4 in Resources */,
 				22F1FBCF21C0F5DA00F07F7D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,9 +288,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QNBW2BT8S6;
 				INFOPLIST_FILE = PIPVideo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test.PIPVideo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.guazi.car;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -292,9 +303,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QNBW2BT8S6;
 				INFOPLIST_FILE = PIPVideo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test.PIPVideo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.guazi.car;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
