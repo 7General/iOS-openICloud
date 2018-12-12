@@ -9,8 +9,9 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "CollectionViewController.h"
-#import "CollectionAnimateViewController.h"
+
 #import "AnimateViewController.h"
+#import "DrawCollectionViewController.h"
 
 @interface AppDelegate ()
 
@@ -26,7 +27,8 @@
 //    CollectionViewController *main = [[CollectionViewController alloc] init];
     
 //    CollectionAnimateViewController * main = [[CollectionAnimateViewController alloc] init];
-    AnimateViewController * main = [[AnimateViewController alloc] init];
+//    AnimateViewController * main = [[AnimateViewController alloc] init];
+    DrawCollectionViewController * main = [[DrawCollectionViewController alloc] init];
     UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:main];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];

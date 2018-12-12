@@ -90,6 +90,7 @@
        self.style != CWCarouselStyle_Unknow &&
        self.style != CWCarouselStyle_H_1) {
         NSArray<UICollectionViewLayoutAttributes *> *arr = [[NSArray alloc] initWithArray:[super layoutAttributesForElementsInRect:rect] copyItems:YES];
+        
         CGFloat centerX = self.collectionView.contentOffset.x + CGRectGetWidth(self.collectionView.frame) * 0.5;
         CGFloat width = self.itemWidth;
         __block CGFloat maxScale = 0;

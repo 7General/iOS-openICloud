@@ -7,14 +7,16 @@
 //
 
 #import "AnimateViewController.h"
+#import "AnimateFlowLayout.h"
 
 static NSString * identifier = @"osCellID";
 static CGFloat kMagin = 10.f;
-static NSString * headIdentifier = @"cxHeadID";
+static NSString * headIdentifier = @"osHeadID";
 
 @interface AnimateViewController ()<UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView * collectionView;
+//@property (nonatomic, strong) AnimateFlowLayout * flowLayout;
 
 @end
 
@@ -24,6 +26,20 @@ static NSString * headIdentifier = @"cxHeadID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.collectionView];
+    
+    
+    NSMutableArray * array = [[NSMutableArray alloc] init];
+    [array addObject:@"1"];
+    
+    NSInteger index = array.count ? array.count : 0;
+    [array insertObject:@"2" atIndex:index];
+    
+    if (array.count) {
+        [array removeObjectAtIndex:array.count - 1];
+    }
+    
+    NSLog(@"--->>>%@",array);
+//    [array removeObjectAtIndex:0];
 }
 
 
@@ -42,38 +58,34 @@ static NSString * headIdentifier = @"cxHeadID";
     return cell;
 }
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    if (kind == UICollectionElementKindSectionHeader) {
-        UICollectionReusableView * header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headIdentifier forIndexPath:indexPath];
-        header.backgroundColor = [UIColor yellowColor];
-        return header;
-    }
-    return nil;
-}
+//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+//    if (kind == UICollectionElementKindSectionHeader) {
+//        UICollectionReusableView * header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headIdentifier forIndexPath:indexPath];
+//        header.backgroundColor = [UIColor yellowColor];
+//        return header;
+//    }
+//    return nil;
+//}
 
 
 #pragma mark -setter getter
 - (UICollectionView *)collectionView{
     if (!_collectionView) {
+        AnimateFlowLayout *flowLayout = [AnimateFlowLayout new];
         CGFloat itemWidth = (self.view.frame.size.width - 4 * kMagin) / 3;
-        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, (itemWidth / 0.618) + 100) collectionViewLayout:[self createViewFlowLayout]];
+        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, (itemWidth / 0.618) + 100) collectionViewLayout:flowLayout];
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:identifier];
-        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headIdentifier];
+//        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headIdentifier];
         _collectionView.dataSource = self;
     }
     return _collectionView;
     
 }
 - (UICollectionViewFlowLayout *)createViewFlowLayout {
-    //自动网格布局
     UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
     CGFloat itemWidth = (self.view.frame.size.width - 4 * kMagin) / 3;
     //设置单元格大小
     flowLayout.itemSize = CGSizeMake(itemWidth, itemWidth / 0.618);
-    //最小行间距(默认为10)
-//    flowLayout.minimumLineSpacing = 10;
-//    //最小item间距（默认为10）
-//    flowLayout.minimumInteritemSpacing = 10;
     //设置senction的内边距
     flowLayout.sectionInset = UIEdgeInsetsMake(kMagin, kMagin, kMagin, kMagin);
     //设置UICollectionView的滑动方向

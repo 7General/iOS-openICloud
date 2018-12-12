@@ -444,9 +444,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    [self adjustErrorCell:YES];
-//    self.currentIndexPath = indexPath;
-//    [self didSelectItemCellAdjustErrorCell:YES];
+
     [self didSelectItemCellAdjustErrorCell:YES forIndexPath:indexPath];
     
 //    return;
