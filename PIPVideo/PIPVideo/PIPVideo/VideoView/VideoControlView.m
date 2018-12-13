@@ -41,8 +41,10 @@
     // 进度条
     self.slideView = [[VideoSliderView alloc] initWithFrame:CGRectMake(100, y, self.frame.size.width - 230, kVideoSlideHeight)];
     self.slideView.value = 0.0;
-    
-    [self customVideoSlider];
+    [self addSubview:self.slideView];
+
+//    [self customVideoSlider];
+
 }
 - (void)customVideoSlider {
     UIGraphicsBeginImageContextWithOptions((CGSize){1,1}, NO, 0.0f);
@@ -51,6 +53,8 @@
     
     [self.slideView setMaximumTrackImage:transparentImage forState:UIControlStateNormal];
 }
+
+
 
 #pragma mark 播放和下一首按钮
 - (void)initButton {

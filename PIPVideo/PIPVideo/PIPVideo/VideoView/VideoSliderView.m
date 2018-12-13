@@ -16,7 +16,11 @@
     if (self) {
         self.slider = [[UISlider alloc] initWithFrame:self.bounds];
         [self.slider setThumbImage:[UIImage imageNamed:@"iconfont-yuan1"] forState:UIControlStateNormal];
+        /* 小于滑块当前值滑块条的颜色，默认为蓝色 */
         self.slider.minimumTrackTintColor = [UIColor colorWithRed:76 / 255.0 green:130/255.0 blue:243/255.0 alpha:1];
+        /* 大于滑块当前值得颜色，默认为白色 */
+//        self.slider.maximumTrackTintColor = [UIColor redColor];
+        /* 当值可以改变时，滑块可以滑动到最大位置的值，默认为1.0 */
         self.slider.maximumValue = 1;
         
         [self.slider addTarget:self action:@selector(beginDragging) forControlEvents:UIControlEventTouchDown];
@@ -31,7 +35,7 @@
 
 
 -(void)layoutSubviews {
-    self.frame = self.bounds;
+    self.slider.frame = self.bounds;
 }
 
 -(void)setValue:(CGFloat)value {

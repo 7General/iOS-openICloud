@@ -53,7 +53,7 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
         [self initControlView];
         [self initNaviBackView];
         
-//        [self initTimer];
+        [self initTimer];
     }
     return self;
 }
@@ -74,6 +74,9 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
     [self.layer addSublayer:self.playerLayer];
 }
 
+/**
+ 初始化底部控制台
+ */
 - (void)initControlView {
     CGFloat y = CGRectGetMaxY(self.frame) - kVideoControlHeight;
     self.controlView = [[VideoControlView alloc] initWithFrame:CGRectMake(0, y, self.frame.size.width, kVideoControlHeight)];
@@ -86,6 +89,9 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
     [self addSubview:self.controlView];
 }
 
+/**
+ 初始化顶部导航栏
+ */
 - (void)initNaviBackView {
     _naviBack = [[VideoNaviView alloc] initWithFrame:
                  CGRectMake(0, 0, self.frame.size.width, kVideoNaviHeight)];
@@ -106,7 +112,7 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
 /**
  返回按钮
  */
-- (void)didCloseVideoView {
+- (void)didCloseVideoView:(UIButton *)sender {
     
 }
 
@@ -117,10 +123,18 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
     
 }
 
+
+/**
+ 播放下一曲
+ */
 - (void)unKownAction {
     
 }
 
+
+/**
+ 播放或者暂停
+ */
 - (void)playOrPause {
     if (self.controlView.playButton.selected) {
         [self play];
@@ -129,6 +143,10 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
     }
 }
 
+
+/**
+ 播放
+ */
 - (void)play {
     controlViewHideTime = 0;
     autoHiddenCount = 0;
@@ -143,8 +161,7 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
 }
 
 #pragma mark 创建计时器
-- (void)initTimer
-{
+- (void)initTimer {
     //计时器
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.f
                                               target:self
@@ -153,8 +170,7 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
                                              repeats:YES];
 }
 #pragma mark 响应timer
-- (void)timeRun
-{
+- (void)timeRun {
     controlViewHideTime++;
     NSLog(@"播放中自动隐藏计数：%d", controlViewHideTime);
     if (_playerItem.duration.timescale != 0) {
@@ -172,20 +188,18 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
     }
     if (controlViewHideTime == 7) {
         controlViewHideTime = 0;
-        [self hiddenActionView];
+//        [self hiddenActionView];
     }
 }
 #pragma mark 隐藏控制台
-- (void)hiddenActionView
-{
+- (void)hiddenActionView {
     [UIView animateWithDuration:0.5 animations:^{
         _controlView.alpha = 0;
         _naviBack.alpha = 0;
     }];
 }
 
-- (void)pause
-{
+- (void)pause {
     controlViewHideTime = 0;
     autoHiddenCount = 0;
     [_controlView.playButton setBackgroundImage:[UIImage imageNamed:@"playBtn"]
@@ -207,8 +221,7 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
 
 
 #pragma mark 设置路径
-- (void)setPath:(NSString *)path
-{
+- (void)setPath:(NSString *)path {
 #if kIsPlayLocalVideo
     NSURL *sourceMovieUrl = [NSURL fileURLWithPath:path];
     AVAsset *movieAsset = [AVURLAsset URLAssetWithURL:sourceMovieUrl options:nil];
@@ -216,11 +229,10 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
 #else
     self.playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:path]];
 #endif
-//    [self.playerItem addObserver:self
-//                      forKeyPath:@"loadedTimeRanges"
-//                         options:NSKeyValueObservingOptionNew context:nil];// 监听loadedTimeRanges属性
+    [self.playerItem addObserver:self
+                      forKeyPath:@"loadedTimeRanges"
+                         options:NSKeyValueObservingOptionNew context:nil];
     [self.player replaceCurrentItemWithPlayerItem:_playerItem];
-    
 }
 
 
@@ -248,10 +260,35 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
         
     }
     _controlView.frame = CGRectMake(0, y, self.frame.size.width, kVideoControlHeight);
-//    _naviBack.frame    = CGRectMake(0, 0, self.frame.size.width, kVideoNaviHeight);
+    _naviBack.frame    = CGRectMake(0, 0, self.frame.size.width, kVideoNaviHeight);
 }
 
 
+#pragma mark 计算缓冲进度
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"loadedTimeRanges"]) {
+        NSTimeInterval timeInterval = [self availableDuration];// 计算缓冲进度
+        CMTime duration = self.playerItem.duration;
+        CGFloat totalDuration = CMTimeGetSeconds(duration);
+        [self.controlView.progress setProgress:timeInterval / totalDuration animated:NO];
+    }
+}
+
+- (NSTimeInterval)availableDuration {
+    NSArray *loadedTimeRanges = [[_player currentItem] loadedTimeRanges];
+    CMTimeRange timeRange = [loadedTimeRanges.firstObject CMTimeRangeValue];// 获取缓冲区域
+    float startSeconds = CMTimeGetSeconds(timeRange.start);
+    float durationSeconds = CMTimeGetSeconds(timeRange.duration);
+    NSTimeInterval result = startSeconds + durationSeconds;// 计算缓冲总进度
+    return result;
+}
+
+
+-(void)dealloc {
+    
+    [_timer invalidate];
+    [_hiddenTimer invalidate];
+}
 
 
 
