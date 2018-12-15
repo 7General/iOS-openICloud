@@ -179,7 +179,6 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
         _controlView.currentTime     = CMTimeGetSeconds(currentTime);
         _controlView.duration        = duration.value / duration.timescale;
         _controlView.slideView.value = _controlView.currentTime / _controlView.duration;//当前进度
-        
     }
     if (_player.status == AVPlayerStatusReadyToPlay) {
         // 等待加载中
@@ -285,7 +284,6 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
 
 
 -(void)dealloc {
-    
     [_timer invalidate];
     [_hiddenTimer invalidate];
 }

@@ -66,7 +66,6 @@
 - (void)dragging {
     if ([_delegate respondsToSelector:@selector(videoSlideViewDidDragging:)]) {
         [_delegate videoSlideViewDidDragging:self];
-        
     }
 }
 
@@ -76,7 +75,6 @@
 - (void)endDragging {
     if ([_delegate respondsToSelector:@selector(videoSlideViewDidEndDragging:)]) {
         [_delegate videoSlideViewDidEndDragging:self];
-        
     }
 }
 

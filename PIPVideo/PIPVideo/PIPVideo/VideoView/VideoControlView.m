@@ -8,7 +8,7 @@
 
 #import "VideoControlView.h"
 #import "VideoSliderView.h"
-#import "ZVideoUtilities.h"
+#import "VideoUtilities.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface VideoControlView()

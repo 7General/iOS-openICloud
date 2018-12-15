@@ -35,7 +35,7 @@
 		22F1FBD521C0F5DA00F07F7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22F1FBD621C0F5DA00F07F7D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		22F1FBDD21C0FB2A00F07F7D /* 282.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 282.mp4; sourceTree = "<group>"; };
-		22F1FBE021C102DE00F07F7D /* ZVideoUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZVideoUtilities.h; sourceTree = "<group>"; };
+		22F1FBE021C102DE00F07F7D /* VideoUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoUtilities.h; sourceTree = "<group>"; };
 		22F1FBE121C1032F00F07F7D /* VideoControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoControlView.h; sourceTree = "<group>"; };
 		22F1FBE221C1032F00F07F7D /* VideoControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoControlView.m; sourceTree = "<group>"; };
 		22F1FBE421C1034C00F07F7D /* VideoSliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoSliderView.h; sourceTree = "<group>"; };
@@ -94,17 +94,17 @@
 		22F1FBDF21C102B600F07F7D /* VideoView */ = {
 			isa = PBXGroup;
 			children = (
-				22F1FBE021C102DE00F07F7D /* ZVideoUtilities.h */,
-				22F1FBE121C1032F00F07F7D /* VideoControlView.h */,
-				22F1FBE221C1032F00F07F7D /* VideoControlView.m */,
-				22F1FBE421C1034C00F07F7D /* VideoSliderView.h */,
-				22F1FBE521C1034C00F07F7D /* VideoSliderView.m */,
-				22F1FBE721C1100400F07F7D /* VideoPlayerController.h */,
-				22F1FBE821C1100400F07F7D /* VideoPlayerController.m */,
-				22F1FBEA21C1102800F07F7D /* VideoView.h */,
-				22F1FBEB21C1102800F07F7D /* VideoView.m */,
+				22F1FBE021C102DE00F07F7D /* VideoUtilities.h */,
 				2249142221C245A800671862 /* VideoNaviView.h */,
 				2249142321C245A800671862 /* VideoNaviView.m */,
+				22F1FBE421C1034C00F07F7D /* VideoSliderView.h */,
+				22F1FBE521C1034C00F07F7D /* VideoSliderView.m */,
+				22F1FBE121C1032F00F07F7D /* VideoControlView.h */,
+				22F1FBE221C1032F00F07F7D /* VideoControlView.m */,
+				22F1FBEA21C1102800F07F7D /* VideoView.h */,
+				22F1FBEB21C1102800F07F7D /* VideoView.m */,
+				22F1FBE721C1100400F07F7D /* VideoPlayerController.h */,
+				22F1FBE821C1100400F07F7D /* VideoPlayerController.m */,
 			);
 			path = VideoView;
 			sourceTree = "<group>";
