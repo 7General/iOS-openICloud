@@ -21,8 +21,8 @@
 /**
  退出PIP
 
- @param pictureInPictureController <#pictureInPictureController description#>
- @param completionHandler <#completionHandler description#>
+ @param pictureInPictureController AVPictureInPictureController
+ @param completionHandler completionHandler
  */
 - (void)pictureInPictureController:(AVPictureInPictureController *)pictureInPictureController restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:(void (^)(BOOL))completionHandler {
     if (_view.delegate && [_view.delegate respondsToSelector:@selector(pictureInPictureController:restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:)]) {
@@ -34,9 +34,10 @@
 /**
  进入PIP
 
- @param pictureInPictureController <#pictureInPictureController description#>
+ @param pictureInPictureController AVPictureInPictureController
  */
 - (void)pictureInPictureControllerDidStartPictureInPicture:(AVPictureInPictureController *)pictureInPictureController {
+    NSLog(@"=start=====");
     if (_view.delegate && [_view.delegate respondsToSelector:@selector(pictureInPictureControllerDidStartPictureInPicture:)]) {
         [_view.delegate pictureInPictureControllerDidStartPictureInPicture:pictureInPictureController];
     }

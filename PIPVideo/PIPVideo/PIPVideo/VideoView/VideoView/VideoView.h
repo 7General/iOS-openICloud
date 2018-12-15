@@ -19,13 +19,39 @@
 @protocol VideoViewDelegate <NSObject>
 @optional
 
+
+/**
+ 选择播放位置
+
+ @param videoView VideoView
+ @param time NSTimeInterval
+ */
 - (void)videoView:(VideoView *)videoView didCloseAtTime:(NSTimeInterval)time;
 - (void)videoViewDidStartCall:(VideoView *)videoView;
+
+/**
+ 播放完成
+
+ @param videoView videoView
+ */
 - (void)videoViewDidFinishPlay:(VideoView *)videoView;
 
 // 画中画响应事件，用于自定义画中画的开始和结束时响应的事件
 - (void)pictureInPictureController:(AVPictureInPictureController *)pictureInPictureController failedToStartPictureInPictureWithError:(NSError *)error;
+
+/**
+ 还原画中画功能
+
+ @param pictureInPictureController pictureInPictureController
+ @param completionHandler completionHandler
+ */
 - (void)pictureInPictureController:(AVPictureInPictureController *)pictureInPictureController restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:(void (^)(BOOL))completionHandler;
+
+/**
+ 开始画中画功能
+
+ @param pictureInPictureController pictureInPictureController
+ */
 - (void)pictureInPictureControllerDidStartPictureInPicture:(AVPictureInPictureController *)pictureInPictureController;
 - (void)pictureInPictureControllerDidStopPictureInPicture:(AVPictureInPictureController *)pictureInPictureController;
 - (void)pictureInPictureControllerWillStartPictureInPicture:(AVPictureInPictureController *)pictureInPictureController;
@@ -62,7 +88,7 @@
 //- (void)stop;                          // 停止
 
 
-//- (void)showActionView;                // 显示控制台
+- (void)showActionView;                // 显示控制台
 
 - (void)playOrPause;                   // 开始/暂停(双击事件)
 

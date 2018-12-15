@@ -77,12 +77,25 @@
 //    [self.view addSubview:slideView];
     
     self.view.backgroundColor = [UIColor grayColor];
+    
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(100, 100, 100, 100);
+    btn.backgroundColor = [UIColor redColor];
+    [btn addTarget:self action:@selector(showVideoview) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    
+    
 }
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (void)showVideoview {
+        NSLog(@"touchesBegan");
     self.video = [[VideoPlayerController alloc] init];
     self.video.vc = self;
     [self presentViewController:self.video animated:YES completion:nil];
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+
+    
 }
 
 //- (void)initSimple {

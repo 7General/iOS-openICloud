@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2249142421C245A800671862 /* VideoNaviView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2249142321C245A800671862 /* VideoNaviView.m */; };
 		2249142B21C4D6BC00671862 /* VideoPIPViewControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2249142A21C4D6BC00671862 /* VideoPIPViewControllerDelegate.m */; };
+		2249143221C4F7AE00671862 /* VideoTaphandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2249143121C4F7AE00671862 /* VideoTaphandler.m */; };
 		22F1FBC921C0F5DA00F07F7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FBC821C0F5DA00F07F7D /* AppDelegate.m */; };
 		22F1FBCC21C0F5DA00F07F7D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FBCB21C0F5DA00F07F7D /* ViewController.m */; };
 		22F1FBCF21C0F5DA00F07F7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F1FBCD21C0F5DA00F07F7D /* Main.storyboard */; };
@@ -27,6 +28,8 @@
 		2249142321C245A800671862 /* VideoNaviView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoNaviView.m; sourceTree = "<group>"; };
 		2249142921C4D6BC00671862 /* VideoPIPViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPIPViewControllerDelegate.h; sourceTree = "<group>"; };
 		2249142A21C4D6BC00671862 /* VideoPIPViewControllerDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPIPViewControllerDelegate.m; sourceTree = "<group>"; };
+		2249143021C4F7AE00671862 /* VideoTaphandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoTaphandler.h; sourceTree = "<group>"; };
+		2249143121C4F7AE00671862 /* VideoTaphandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoTaphandler.m; sourceTree = "<group>"; };
 		22F1FBC421C0F5DA00F07F7D /* PIPVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PIPVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F1FBC721C0F5DA00F07F7D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22F1FBC821C0F5DA00F07F7D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -98,6 +101,15 @@
 			path = VideoView;
 			sourceTree = "<group>";
 		};
+		2249142F21C4F79300671862 /* VideoHandler */ = {
+			isa = PBXGroup;
+			children = (
+				2249143021C4F7AE00671862 /* VideoTaphandler.h */,
+				2249143121C4F7AE00671862 /* VideoTaphandler.m */,
+			);
+			path = VideoHandler;
+			sourceTree = "<group>";
+		};
 		22F1FBBB21C0F5DA00F07F7D = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +147,7 @@
 		22F1FBDF21C102B600F07F7D /* VideoView */ = {
 			isa = PBXGroup;
 			children = (
+				2249142F21C4F79300671862 /* VideoHandler */,
 				22F1FBE021C102DE00F07F7D /* VideoUtilities.h */,
 				22F1FBE721C1100400F07F7D /* VideoPlayerController.h */,
 				22F1FBE821C1100400F07F7D /* VideoPlayerController.m */,
@@ -231,6 +244,7 @@
 				22F1FBCC21C0F5DA00F07F7D /* ViewController.m in Sources */,
 				22F1FBD721C0F5DA00F07F7D /* main.m in Sources */,
 				22F1FBE921C1100400F07F7D /* VideoPlayerController.m in Sources */,
+				2249143221C4F7AE00671862 /* VideoTaphandler.m in Sources */,
 				22F1FBC921C0F5DA00F07F7D /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

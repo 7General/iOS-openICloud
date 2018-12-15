@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "VideoPIPViewControllerDelegate.h"
+#import "VideoTaphandler.h"
 
 
 #define kIsPlayLocalVideo 1
@@ -21,7 +22,7 @@
 @property (nonatomic, strong) AVPlayerLayer                *playerLayer;
 @property (nonatomic, assign) CGFloat                      width;              // 坐标
 @property (nonatomic, assign) CGFloat                      height;             // 坐标
-//@property (nonatomic, strong) ZVideoTaphandler             *tapHandler;        // 轻拍手势
+@property (nonatomic, strong) VideoTaphandler             *tapHandler;        // 轻拍手势
 //@property (nonatomic, strong) ZVideoPanHandler             *panHandler;        // 滑动手势
 @property (nonatomic, assign) BOOL                         isPlayingBeforeDrag;// 滑动前是否是播放状态
 @property (nonatomic, strong) NSTimer                      *timer;// 进度计时器、播放中自动隐藏控制台计数
@@ -53,13 +54,16 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
         [self initPlayer];
         [self initControlView];
         [self initNaviBackView];
-        
+        [self initGesture];
         [self initTimer];
+//        [self initNotification];
 
     }
     return self;
 }
-
+- (void)initGesture {
+    self.tapHandler = [[VideoTaphandler alloc] initTapHandlerWithView:self];
+}
 
 
 /**
@@ -111,33 +115,38 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
     [self addSubview:_naviBack];
 }
 
-
 /**
- 返回按钮
+ 初始化通知
  */
-- (void)didCloseVideoView:(UIButton *)sender {
-    
+- (void)initNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActive)
+                                                 name:UIApplicationWillResignActiveNotification object:nil];
 }
 
-/**
- 开启画中画
- */
+- (void)applicationWillResignActive {
+    [self.pipViewController startPictureInPicture];
+}
+
+#pragma mark 返回按钮
+- (void)didCloseVideoView:(UIButton *)sender {
+    if (self.delegate && [self.description respondsToSelector:@selector(videoView:didCloseAtTime:)]) {
+        [self.delegate videoView:self didCloseAtTime:0];
+        [self stop];
+    }
+}
+
+#pragma mark 开启画中画
 - (void)didOpenPipMode {
     [self.pipViewController startPictureInPicture];
 }
 
 
-/**
- 播放下一曲
- */
+#pragma mark 播放下一曲
 - (void)unKownAction {
     
 }
 
-
-/**
- 播放或者暂停
- */
+#pragma mark 播放或者暂停
 - (void)playOrPause {
     if (self.controlView.playButton.selected) {
         [self play];
@@ -146,10 +155,7 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
     }
 }
 
-
-/**
- 播放
- */
+#pragma mark 播放
 - (void)play {
     controlViewHideTime = 0;
     autoHiddenCount = 0;
@@ -172,6 +178,7 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
                                             userInfo:nil
                                              repeats:YES];
 }
+
 #pragma mark 响应timer
 - (void)timeRun {
     controlViewHideTime++;
@@ -190,9 +197,10 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
     }
     if (controlViewHideTime == 7) {
         controlViewHideTime = 0;
-//        [self hiddenActionView];
+        [self hiddenActionView];
     }
 }
+
 #pragma mark 隐藏控制台
 - (void)hiddenActionView {
     [UIView animateWithDuration:0.5 animations:^{
@@ -201,24 +209,41 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
     }];
 }
 
+#pragma mark 响应轻拍事件
+- (void)showActionView {
+    controlViewHideTime = 0;
+    autoHiddenCount = 0;
+    if (_controlView.alpha == 1) {
+        [UIView animateWithDuration:0.5 animations:^{
+            _controlView.alpha = 0;
+            _naviBack.alpha = 0;
+        }];
+    } else if (_controlView.alpha == 0){
+        [UIView animateWithDuration:0.5 animations:^{
+            _controlView.alpha = 1;
+            _naviBack.alpha = 1;
+        }];
+    }
+}
+
 - (void)pause {
     controlViewHideTime = 0;
     autoHiddenCount = 0;
-    [_controlView.playButton setBackgroundImage:[UIImage imageNamed:@"playBtn"]
+    [self.controlView.playButton setBackgroundImage:[UIImage imageNamed:@"playBtn"]
                                        forState:UIControlStateNormal];
-    _controlView.playButton.selected =!_controlView.playButton.selected;
+    self.controlView.playButton.selected =!_controlView.playButton.selected;
     
-    [_timer invalidate];
-    
+    [self.timer invalidate];
+
     [self.player pause];
     // 暂停后需自动隐藏控制台
 //    [self autoHiddenActionView];
 }
 
 - (void)stop {
-    [_timer invalidate];
-    [_hiddenTimer invalidate];
-    [_player replaceCurrentItemWithPlayerItem:nil];
+    [self.timer invalidate];
+    [self.hiddenTimer invalidate];
+    [self.player replaceCurrentItemWithPlayerItem:nil];
 }
 
 
@@ -318,7 +343,6 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
 
 
 -(void)dealloc {
-    NSLog(@"videoView======================");
     [_timer invalidate];
     [_hiddenTimer invalidate];
 }
