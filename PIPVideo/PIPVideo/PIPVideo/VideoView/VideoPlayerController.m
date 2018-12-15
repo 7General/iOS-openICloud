@@ -7,8 +7,11 @@
 //
 
 #import "VideoPlayerController.h"
+#import "VideoView.h"
 
-@interface VideoPlayerController ()
+@interface VideoPlayerController ()<VideoViewDelegate>
+
+@property (nonatomic, strong) VideoView *zView;
 
 @end
 
@@ -18,16 +21,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _zView = [[VideoView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.zView = [[VideoView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.view addSubview:_zView];
     NSString *path = [[NSBundle mainBundle] pathForResource:@"282" ofType:@"mp4"];
-    [_zView setPath:path];
-    [_zView setTitle:@"视频播放"];
-    //    _zView.VideoBackgroundColor = [UIColor blackColor];
-    //    _zView.supportPictureInpicture = YES;  // 支持画中画,则不支持后台暂停，反之。。。
+    [self.zView setPath:path];
+    [self.zView setTitle:@"视频播放"];
+    self.zView.VideoBackgroundColor = [UIColor blackColor];
+    self.zView.supportPictureInpicture = YES;  // 支持画中画,则不支持后台暂停，反之。。。
     
+    [self.zView play];
+    
+    self.zView.delegate = self;
+    
+}
+
+- (void)pictureInPictureControllerDidStartPictureInPicture:(AVPictureInPictureController *)pictureInPictureController {
+    NSLog(@"开始");
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)pictureInPictureController:(AVPictureInPictureController *)pictureInPictureController restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:(void (^)(BOOL))completionHandler {
+    NSLog(@"还原");
+    [_vc presentViewController:self animated:YES completion:nil];
     [_zView play];
-    
+    completionHandler(YES);
+}
+
+- (void)dealloc
+{
+    _zView.delegate = nil;
+    _zView = nil;
 }
 
 

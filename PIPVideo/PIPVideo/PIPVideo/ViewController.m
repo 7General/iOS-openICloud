@@ -8,14 +8,16 @@
 
 #import "ViewController.h"
 ///* 引入两个框架 */
-//#import <AVKit/AVKit.h>
-//#import <AVFoundation/AVFoundation.h>
+#import <AVKit/AVKit.h>
+#import <AVFoundation/AVFoundation.h>
+
 
 #import "VideoPlayerController.h"
-#import "VideoSliderView.h"
 
 @interface ViewController ()
-//<AVPlayerViewControllerDelegate>
+
+
+@property (nonatomic, strong) VideoPlayerController * video;
 
 @end
 
@@ -25,18 +27,18 @@
     [super viewDidLoad];
     
     
-    UIGraphicsBeginImageContextWithOptions((CGSize){1,1}, NO, 0.0f);
-    UIImage * transparentImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-
-
-    UISlider * slider = [[UISlider alloc]initWithFrame:CGRectMake(10 , 100, 300, 50)];
-    slider.minimumValue = 0.0;
-    slider.maximumValue = 100.0;
-
-    slider.value = 50;
-
-    [slider setContinuous:YES];
+//    UIGraphicsBeginImageContextWithOptions((CGSize){1,1}, NO, 0.0f);
+//    UIImage * transparentImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//
+//
+//    UISlider * slider = [[UISlider alloc]initWithFrame:CGRectMake(10 , 100, 300, 50)];
+//    slider.minimumValue = 0.0;
+//    slider.maximumValue = 100.0;
+//
+//    slider.value = 50;
+//
+//    [slider setContinuous:YES];
     
     
 //    slider.minimumTrackTintColor = [UIColor colorWithRed:76 / 255.0 green:130/255.0 blue:243/255.0 alpha:1];
@@ -48,7 +50,7 @@
 //    slider.maximumValueImage = [UIImage imageNamed:@"pauseBtn"];
 
     //07.minimumTrackTintColor : 小于滑块当前值滑块条的颜色，默认为蓝色
-    slider.minimumTrackTintColor = [UIColor redColor];
+//    slider.minimumTrackTintColor = [UIColor redColor];
 
     //08.maximumTrackTintColor: 大于滑块当前值滑块条的颜色，默认为白色
 //    slider.maximumTrackTintColor = [UIColor blueColor];
@@ -61,7 +63,7 @@
     //    10.currentMaximumTrackImage : 滑块条最大值处设置的图片
     //    11.currentMinimumTrackImage : 滑块条最小值处设置的图片
     //    12.currentThumbImage: 当前滑块的图片
-    [self.view addSubview:slider];
+//    [self.view addSubview:slider];
     
     
 //    UIProgressView *progress = [[UIProgressView alloc] initWithFrame:CGRectMake(10, 200, 300, 4)];
@@ -78,11 +80,12 @@
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-    VideoPlayerController * video = [[VideoPlayerController alloc] init];
-    [self presentViewController:video animated:YES completion:^{
-        
-    }];
+    self.video = [[VideoPlayerController alloc] init];
+    self.video.vc = self;
+    [self presentViewController:self.video animated:YES completion:nil];
+}
+
+//- (void)initSimple {
 //    AVAudioSession * audioSession = [AVAudioSession sharedInstance];
 //    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
 //
@@ -92,7 +95,7 @@
 //    play.delegate = self;
 //    play.player = [[AVPlayer alloc]initWithURL:url];
 //    [self presentViewController:play animated:YES completion:nil];
-}
+//}
 
 //- (BOOL)playerViewControllerShouldAutomaticallyDismissAtPictureInPictureStart:(AVPlayerViewController *)playerViewController {
 //    return YES;

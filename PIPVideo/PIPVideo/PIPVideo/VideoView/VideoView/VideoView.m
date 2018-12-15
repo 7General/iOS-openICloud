@@ -9,11 +9,12 @@
 #import "VideoView.h"
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "VideoPIPViewControllerDelegate.h"
 
 
 #define kIsPlayLocalVideo 1
 
-@interface VideoView()<VideoSliderViewDelegate>
+@interface VideoView()<VideoSliderViewDelegate,AVPictureInPictureControllerDelegate>
 
 @property (nonatomic, strong) AVPlayer                     *player;            // 播放属性
 @property (nonatomic, strong) AVPlayerItem                 *playerItem;
@@ -27,7 +28,7 @@
 @property (nonatomic, strong) NSTimer                      *hiddenTimer; // 暂停后自动隐藏控制台的计时器
 @property (nonatomic, strong) UISlider                     *volumeSlider;     // 获取系统音量
 @property (nonatomic, strong) AVPictureInPictureController *pipViewController;// 画中画
-//@property (nonatomic, strong) ZVideoPIPViewControllerDelegate *pipDelegate;
+@property (nonatomic, strong) VideoPIPViewControllerDelegate *pipDelegate;
 @end
 
 @implementation VideoView
@@ -54,9 +55,11 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
         [self initNaviBackView];
         
         [self initTimer];
+
     }
     return self;
 }
+
 
 
 /**
@@ -117,10 +120,10 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
 }
 
 /**
- 关闭画中画
+ 开启画中画
  */
 - (void)didOpenPipMode {
-    
+    [self.pipViewController startPictureInPicture];
 }
 
 
@@ -262,6 +265,37 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
     _naviBack.frame    = CGRectMake(0, 0, self.frame.size.width, kVideoNaviHeight);
 }
 
+#pragma mark 设置标题
+-(void)setTitle:(NSString *)title {
+    self.naviBack.title = title;
+}
+#pragma mark 设置背景色
+-(void)setVideoBackgroundColor:(UIColor *)VideoBackgroundColor {
+    self.backgroundColor = VideoBackgroundColor;
+}
+
+#pragma mark 设置是否支持画中画
+- (void)setSupportPictureInpicture:(BOOL)supportPictureInpicture {
+    if (supportPictureInpicture) {
+        [self initPicInPicViewController];
+        self.naviBack.pipButton.enabled = YES;
+        // 取消后台暂停通知
+//        [[NSNotificationCenter defaultCenter] removeObserver:self
+//                                                        name:UIApplicationDidEnterBackgroundNotification
+//                                                      object:nil];
+    } else {
+        self.naviBack.pipButton.enabled = NO;
+    }
+}
+
+- (void)initPicInPicViewController {
+    self.pipViewController = [[AVPictureInPictureController alloc] initWithPlayerLayer:self.playerLayer];
+    self.pipDelegate = [[VideoPIPViewControllerDelegate alloc] init];
+    self.pipViewController.delegate = self.pipDelegate;
+    self.pipDelegate.view = self;
+    [self.pipViewController startPictureInPicture];
+}
+
 
 #pragma mark 计算缓冲进度
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
@@ -284,9 +318,11 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
 
 
 -(void)dealloc {
+    NSLog(@"videoView======================");
     [_timer invalidate];
     [_hiddenTimer invalidate];
 }
+
 
 
 

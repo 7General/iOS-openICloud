@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2249142421C245A800671862 /* VideoNaviView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2249142321C245A800671862 /* VideoNaviView.m */; };
+		2249142B21C4D6BC00671862 /* VideoPIPViewControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2249142A21C4D6BC00671862 /* VideoPIPViewControllerDelegate.m */; };
 		22F1FBC921C0F5DA00F07F7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FBC821C0F5DA00F07F7D /* AppDelegate.m */; };
 		22F1FBCC21C0F5DA00F07F7D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F1FBCB21C0F5DA00F07F7D /* ViewController.m */; };
 		22F1FBCF21C0F5DA00F07F7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F1FBCD21C0F5DA00F07F7D /* Main.storyboard */; };
@@ -24,6 +25,8 @@
 /* Begin PBXFileReference section */
 		2249142221C245A800671862 /* VideoNaviView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoNaviView.h; sourceTree = "<group>"; };
 		2249142321C245A800671862 /* VideoNaviView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoNaviView.m; sourceTree = "<group>"; };
+		2249142921C4D6BC00671862 /* VideoPIPViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPIPViewControllerDelegate.h; sourceTree = "<group>"; };
+		2249142A21C4D6BC00671862 /* VideoPIPViewControllerDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPIPViewControllerDelegate.m; sourceTree = "<group>"; };
 		22F1FBC421C0F5DA00F07F7D /* PIPVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PIPVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F1FBC721C0F5DA00F07F7D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22F1FBC821C0F5DA00F07F7D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -57,6 +60,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2249142821C4D69500671862 /* PIPControllerDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				2249142921C4D6BC00671862 /* VideoPIPViewControllerDelegate.h */,
+				2249142A21C4D6BC00671862 /* VideoPIPViewControllerDelegate.m */,
+			);
+			path = PIPControllerDelegate;
+			sourceTree = "<group>";
+		};
+		2249142C21C4E32200671862 /* ControlView */ = {
+			isa = PBXGroup;
+			children = (
+				22F1FBE421C1034C00F07F7D /* VideoSliderView.h */,
+				22F1FBE521C1034C00F07F7D /* VideoSliderView.m */,
+				22F1FBE121C1032F00F07F7D /* VideoControlView.h */,
+				22F1FBE221C1032F00F07F7D /* VideoControlView.m */,
+			);
+			path = ControlView;
+			sourceTree = "<group>";
+		};
+		2249142D21C4E33100671862 /* ControlNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				2249142221C245A800671862 /* VideoNaviView.h */,
+				2249142321C245A800671862 /* VideoNaviView.m */,
+			);
+			path = ControlNavigation;
+			sourceTree = "<group>";
+		};
+		2249142E21C4E34F00671862 /* VideoView */ = {
+			isa = PBXGroup;
+			children = (
+				22F1FBEA21C1102800F07F7D /* VideoView.h */,
+				22F1FBEB21C1102800F07F7D /* VideoView.m */,
+			);
+			path = VideoView;
+			sourceTree = "<group>";
+		};
 		22F1FBBB21C0F5DA00F07F7D = {
 			isa = PBXGroup;
 			children = (
@@ -95,16 +136,12 @@
 			isa = PBXGroup;
 			children = (
 				22F1FBE021C102DE00F07F7D /* VideoUtilities.h */,
-				2249142221C245A800671862 /* VideoNaviView.h */,
-				2249142321C245A800671862 /* VideoNaviView.m */,
-				22F1FBE421C1034C00F07F7D /* VideoSliderView.h */,
-				22F1FBE521C1034C00F07F7D /* VideoSliderView.m */,
-				22F1FBE121C1032F00F07F7D /* VideoControlView.h */,
-				22F1FBE221C1032F00F07F7D /* VideoControlView.m */,
-				22F1FBEA21C1102800F07F7D /* VideoView.h */,
-				22F1FBEB21C1102800F07F7D /* VideoView.m */,
 				22F1FBE721C1100400F07F7D /* VideoPlayerController.h */,
 				22F1FBE821C1100400F07F7D /* VideoPlayerController.m */,
+				2249142E21C4E34F00671862 /* VideoView */,
+				2249142D21C4E33100671862 /* ControlNavigation */,
+				2249142C21C4E32200671862 /* ControlView */,
+				2249142821C4D69500671862 /* PIPControllerDelegate */,
 			);
 			path = VideoView;
 			sourceTree = "<group>";
@@ -186,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2249142B21C4D6BC00671862 /* VideoPIPViewControllerDelegate.m in Sources */,
 				22F1FBEC21C1102800F07F7D /* VideoView.m in Sources */,
 				22F1FBE321C1032F00F07F7D /* VideoControlView.m in Sources */,
 				2249142421C245A800671862 /* VideoNaviView.m in Sources */,

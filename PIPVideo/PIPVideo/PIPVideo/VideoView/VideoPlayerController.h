@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VideoView.h"
+
+#import "ViewController.h"
 
 @interface VideoPlayerController : UIViewController
 
-@property (nonatomic, strong) VideoView *zView;
+
+/* 父视图 */
+@property (nonatomic, assign)   ViewController *vc;
 
 @end

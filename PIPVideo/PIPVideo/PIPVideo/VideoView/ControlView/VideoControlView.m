@@ -43,7 +43,7 @@
     self.slideView.value = 0.0;
     [self addSubview:self.slideView];
 
-//    [self customVideoSlider];
+    [self customVideoSlider];
 
 }
 - (void)customVideoSlider {

@@ -13,10 +13,27 @@
 #import "VideoNaviView.h"
 
 #define kVideoNaviHeight 64
+@class VideoView;
+
+
+@protocol VideoViewDelegate <NSObject>
+@optional
+
+- (void)videoView:(VideoView *)videoView didCloseAtTime:(NSTimeInterval)time;
+- (void)videoViewDidStartCall:(VideoView *)videoView;
+- (void)videoViewDidFinishPlay:(VideoView *)videoView;
+
+// 画中画响应事件，用于自定义画中画的开始和结束时响应的事件
+- (void)pictureInPictureController:(AVPictureInPictureController *)pictureInPictureController failedToStartPictureInPictureWithError:(NSError *)error;
+- (void)pictureInPictureController:(AVPictureInPictureController *)pictureInPictureController restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:(void (^)(BOOL))completionHandler;
+- (void)pictureInPictureControllerDidStartPictureInPicture:(AVPictureInPictureController *)pictureInPictureController;
+- (void)pictureInPictureControllerDidStopPictureInPicture:(AVPictureInPictureController *)pictureInPictureController;
+- (void)pictureInPictureControllerWillStartPictureInPicture:(AVPictureInPictureController *)pictureInPictureController;
+- (void)pictureInPictureControllerWillStopPictureInPicture:(AVPictureInPictureController *)pictureInPictureController;
+
+@end
 
 @interface VideoView : UIView
-
-
 
 @property (nonatomic, strong  ) NSString           *path;                 // 资源路径
 
@@ -36,7 +53,7 @@
 
 @property (nonatomic, getter = isSupportPictureInPicture) BOOL supportPictureInpicture;// 是否支持画中画,默认不支持
 
-//@property (nonatomic, assign  ) id <VideoViewDelegate> delegate;
+@property (nonatomic, weak) id <VideoViewDelegate> delegate;
 
 - (void)play;                          // 播放
 
@@ -45,7 +62,7 @@
 //- (void)stop;                          // 停止
 
 
-- (void)showActionView;                // 显示控制台
+//- (void)showActionView;                // 显示控制台
 
 - (void)playOrPause;                   // 开始/暂停(双击事件)
 
