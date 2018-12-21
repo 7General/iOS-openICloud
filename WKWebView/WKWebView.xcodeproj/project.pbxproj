@@ -10,9 +10,12 @@
 		22E4C95721CCC0CB0032BE7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C95621CCC0CB0032BE7F /* AppDelegate.m */; };
 		22E4C95A21CCC0CB0032BE7F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C95921CCC0CB0032BE7F /* ViewController.m */; };
 		22E4C95D21CCC0CB0032BE7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E4C95B21CCC0CB0032BE7F /* Main.storyboard */; };
-		22E4C95F21CCC0CB0032BE7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22E4C95E21CCC0CB0032BE7F /* Assets.xcassets */; };
 		22E4C96221CCC0CB0032BE7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E4C96021CCC0CB0032BE7F /* LaunchScreen.storyboard */; };
 		22E4C96521CCC0CB0032BE7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C96421CCC0CB0032BE7F /* main.m */; };
+		22E4C96D21CCC1CD0032BE7F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C96C21CCC1CD0032BE7F /* MainViewController.m */; };
+		22E4C97021CCC2CC0032BE7F /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C96F21CCC2CC0032BE7F /* WKWebViewController.m */; };
+		22E4C97421CCC98D0032BE7F /* FootNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C97321CCC98D0032BE7F /* FootNavigationView.m */; };
+		22E4C97621CCD22E0032BE7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22E4C97521CCD22E0032BE7F /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,10 +25,16 @@
 		22E4C95821CCC0CB0032BE7F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		22E4C95921CCC0CB0032BE7F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		22E4C95C21CCC0CB0032BE7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		22E4C95E21CCC0CB0032BE7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22E4C96121CCC0CB0032BE7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22E4C96321CCC0CB0032BE7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22E4C96421CCC0CB0032BE7F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		22E4C96B21CCC1CD0032BE7F /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		22E4C96C21CCC1CD0032BE7F /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		22E4C96E21CCC2CC0032BE7F /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
+		22E4C96F21CCC2CC0032BE7F /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
+		22E4C97221CCC98D0032BE7F /* FootNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FootNavigationView.h; sourceTree = "<group>"; };
+		22E4C97321CCC98D0032BE7F /* FootNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FootNavigationView.m; sourceTree = "<group>"; };
+		22E4C97521CCD22E0032BE7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,17 +67,31 @@
 		22E4C95421CCC0CB0032BE7F /* WKWebView */ = {
 			isa = PBXGroup;
 			children = (
+				22E4C97521CCD22E0032BE7F /* Assets.xcassets */,
+				22E4C97121CCC9540032BE7F /* BottomTabBar */,
 				22E4C95521CCC0CB0032BE7F /* AppDelegate.h */,
 				22E4C95621CCC0CB0032BE7F /* AppDelegate.m */,
 				22E4C95821CCC0CB0032BE7F /* ViewController.h */,
 				22E4C95921CCC0CB0032BE7F /* ViewController.m */,
 				22E4C95B21CCC0CB0032BE7F /* Main.storyboard */,
-				22E4C95E21CCC0CB0032BE7F /* Assets.xcassets */,
 				22E4C96021CCC0CB0032BE7F /* LaunchScreen.storyboard */,
 				22E4C96321CCC0CB0032BE7F /* Info.plist */,
 				22E4C96421CCC0CB0032BE7F /* main.m */,
+				22E4C96B21CCC1CD0032BE7F /* MainViewController.h */,
+				22E4C96C21CCC1CD0032BE7F /* MainViewController.m */,
 			);
 			path = WKWebView;
+			sourceTree = "<group>";
+		};
+		22E4C97121CCC9540032BE7F /* BottomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				22E4C97221CCC98D0032BE7F /* FootNavigationView.h */,
+				22E4C97321CCC98D0032BE7F /* FootNavigationView.m */,
+				22E4C96E21CCC2CC0032BE7F /* WKWebViewController.h */,
+				22E4C96F21CCC2CC0032BE7F /* WKWebViewController.m */,
+			);
+			path = BottomTabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22E4C96221CCC0CB0032BE7F /* LaunchScreen.storyboard in Resources */,
-				22E4C95F21CCC0CB0032BE7F /* Assets.xcassets in Resources */,
+				22E4C97621CCD22E0032BE7F /* Assets.xcassets in Resources */,
 				22E4C95D21CCC0CB0032BE7F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,9 +165,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22E4C97021CCC2CC0032BE7F /* WKWebViewController.m in Sources */,
 				22E4C95A21CCC0CB0032BE7F /* ViewController.m in Sources */,
 				22E4C96521CCC0CB0032BE7F /* main.m in Sources */,
 				22E4C95721CCC0CB0032BE7F /* AppDelegate.m in Sources */,
+				22E4C96D21CCC1CD0032BE7F /* MainViewController.m in Sources */,
+				22E4C97421CCC98D0032BE7F /* FootNavigationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
