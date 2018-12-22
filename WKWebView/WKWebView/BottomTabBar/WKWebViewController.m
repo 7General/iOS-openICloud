@@ -8,14 +8,12 @@
 
 #import "WKWebViewController.h"
 #import <WebKit/WebKit.h>
-//#import "BottomControlView.h"
 #import "FootNavigationView.h"
 
 @interface WKWebViewController ()
 
 @property (nonatomic, strong) WKWebView * webView;
 @property (nonatomic, strong) UIProgressView *progressView;
-//@property (nonatomic, strong) BottomControlView * bottmControlView;
 @property (nonatomic, strong) FootNavigationView * footView;
 
 @property (nonatomic, strong) UIView * ControlView;
@@ -70,7 +68,7 @@
             if (newprogress == 1) {
                 self.progressView.hidden = YES;
                 [self.progressView setProgress:0 animated:NO];
-            }else {
+            } else {
                 self.progressView.hidden = NO;
                 [self.progressView setProgress:newprogress animated:YES];
             }
@@ -106,6 +104,10 @@
         _progressView.progress = 0.0f;
     }
     return _progressView;
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
