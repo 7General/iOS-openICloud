@@ -9,8 +9,9 @@
 #import "WKWebViewController.h"
 #import <WebKit/WebKit.h>
 #import "FootNavigationView.h"
+#import "SheetMoreView.h"
 
-@interface WKWebViewController ()
+@interface WKWebViewController ()<SheetMoreDataSource>
 
 @property (nonatomic, strong) WKWebView * webView;
 @property (nonatomic, strong) UIProgressView *progressView;
@@ -18,9 +19,20 @@
 
 @property (nonatomic, strong) UIView * ControlView;
 
+
+@property (nonatomic, strong) NSMutableArray * sheetShareData;
+
 @end
 
 @implementation WKWebViewController
+
+-(NSMutableArray *)sheetShareData {
+    if (!_sheetShareData) {
+        _sheetShareData = [NSMutableArray new];
+    }
+    return _sheetShareData;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,6 +57,24 @@
     self.footView = [[FootNavigationView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 56, self.view.frame.size.width, 56) forWKWebView:self.webView];
     self.footView.hidden = YES;
     [self.view addSubview:self.footView];
+    
+    
+    
+    SheetItem *gg = [SheetItem sheetItem:@"more_open_gg" forItemName:@"发送给呱呱同事"];
+    SheetItem *wxFriend = [SheetItem sheetItem:@"more_open_wechat" forItemName:@"发送给微信好友"];
+    SheetItem *wxTime = [SheetItem sheetItem:@"more_open_friend" forItemName:@"分享到朋友圈吧两行样式"];
+    SheetItem *collection = [SheetItem sheetItem:@"more_open_collection" forItemName:@"收藏"];
+    SheetItem *safari = [SheetItem sheetItem:@"more_open_safari" forItemName:@"在safari中打开"];
+    SheetItem *copys = [SheetItem sheetItem:@"more_open_copy" forItemName:@"复制链接"];
+    SheetItem *refresh = [SheetItem sheetItem:@"more_open_refresh" forItemName:@"刷新"];
+    
+    [self.sheetShareData addObject:gg];
+    [self.sheetShareData addObject:wxFriend];
+    [self.sheetShareData addObject:wxTime];
+    [self.sheetShareData addObject:collection];
+    [self.sheetShareData addObject:safari];
+    [self.sheetShareData addObject:copys];
+    [self.sheetShareData addObject:refresh];
 }
 
 /**
@@ -58,6 +88,21 @@
     [leftItem.titleLabel setFont:[UIFont systemFontOfSize:17]];
     [leftItem addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:leftItem]];
+    
+    
+    self.navigationItem.rightBarButtonItem = nil;
+    UIButton * rightItem = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    [rightItem setImage:[UIImage imageNamed:@"nav_more_icon"] forState:UIControlStateNormal];
+    [rightItem setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [rightItem.titleLabel setFont:[UIFont systemFontOfSize:17]];
+    [rightItem addTarget:self action:@selector(showMoreView) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:rightItem]];
+}
+
+- (void)showMoreView {
+    SheetMoreView * sheet = [[SheetMoreView alloc] initWithBottomTitle:@"取消"];
+    sheet.dataSource = self;
+    [sheet show];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -108,6 +153,14 @@
 
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(NSInteger)SheetShare:(SheetMoreView *)sheetShare numberOfItemsInSection:(NSInteger)section {
+    return self.sheetShareData.count;
+}
+
+- (SheetItem *)SheetShare:(SheetMoreView *)sheetShare cellForIndexPath:(NSIndexPath *)indexPath {
+    return self.sheetShareData[indexPath.row];
 }
 
 
