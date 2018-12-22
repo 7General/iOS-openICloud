@@ -78,34 +78,22 @@
             self.title = self.webView.title;
         } else if([keyPath isEqualToString:@"canGoBack"]){
             self.footView.hidden = !self.webView.canGoBack;
-            if (self.webView.canGoBack) {
-                [self.footView setGoBackSelectState:UIControlStateNormal];
-            } else {
-                [self.footView setGoBackSelectState:UIControlStateSelected];
-            }
-            
-            if (self.webView.canGoForward) {
-                [self.footView setForWardSelectState:UIControlStateNormal];
-            } else {
-                [self.footView setForWardSelectState:UIControlStateSelected];
-            }
-            
+
+            [self setFootNavgationState];
         } else if([keyPath isEqualToString:@"canGoForward"]){
-            if (self.webView.canGoForward) {
-                [self.footView setForWardSelectState:UIControlStateNormal];
-            } else {
-                [self.footView setForWardSelectState:UIControlStateSelected];
-            }
-            
-            if (self.webView.canGoBack) {
-                [self.footView setGoBackSelectState:UIControlStateNormal];
-            } else {
-                [self.footView setGoBackSelectState:UIControlStateSelected];
-            }
+            [self setFootNavgationState];
         } else {
             self.footView.hidden = YES;
         }
     }
+}
+
+- (void)setFootNavgationState {
+    UIControlState goBackState = self.webView.canGoBack ? UIControlStateNormal : UIControlStateSelected;
+    [self.footView setGoBackSelectState:goBackState];
+    
+    UIControlState goForWardState = self.webView.canGoForward ? UIControlStateNormal : UIControlStateSelected;
+    [self.footView setForWardSelectState:goForWardState];
 }
 
 
