@@ -19,7 +19,7 @@ typedef enum : NSUInteger {
     GZIMShareRefresh, // 刷新
 } GZIMShareMoreType;
 
-@interface SheetItem : NSObject
+@interface GZIMSheetOpenEntity : NSObject
 
 @property (nonatomic, strong) NSString * itemIcon;
 @property (nonatomic, strong) NSString * itemName;

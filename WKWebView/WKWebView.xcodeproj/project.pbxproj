@@ -14,11 +14,11 @@
 		22E4C96521CCC0CB0032BE7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C96421CCC0CB0032BE7F /* main.m */; };
 		22E4C96D21CCC1CD0032BE7F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C96C21CCC1CD0032BE7F /* MainViewController.m */; };
 		22E4C97021CCC2CC0032BE7F /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C96F21CCC2CC0032BE7F /* WKWebViewController.m */; };
-		22E4C97421CCC98D0032BE7F /* FootNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C97321CCC98D0032BE7F /* FootNavigationView.m */; };
+		22E4C97421CCC98D0032BE7F /* GZIMFootNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C97321CCC98D0032BE7F /* GZIMFootNavigationView.m */; };
 		22E4C97621CCD22E0032BE7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22E4C97521CCD22E0032BE7F /* Assets.xcassets */; };
-		22E4C9A821CE176B0032BE7F /* SheetMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C9A721CE176B0032BE7F /* SheetMoreView.m */; };
-		22E4C9AB21CE21220032BE7F /* SheetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C9AA21CE21220032BE7F /* SheetItem.m */; };
-		22E4C9AE21CE23FF0032BE7F /* SheetItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C9AD21CE23FF0032BE7F /* SheetItemCell.m */; };
+		22E4C9A821CE176B0032BE7F /* GZIMSheetOpenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C9A721CE176B0032BE7F /* GZIMSheetOpenView.m */; };
+		22E4C9AB21CE21220032BE7F /* GZIMSheetOpenEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C9AA21CE21220032BE7F /* GZIMSheetOpenEntity.m */; };
+		22E4C9AE21CE23FF0032BE7F /* GZIMSheetOpenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C9AD21CE23FF0032BE7F /* GZIMSheetOpenCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,15 +35,15 @@
 		22E4C96C21CCC1CD0032BE7F /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		22E4C96E21CCC2CC0032BE7F /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
 		22E4C96F21CCC2CC0032BE7F /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
-		22E4C97221CCC98D0032BE7F /* FootNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FootNavigationView.h; sourceTree = "<group>"; };
-		22E4C97321CCC98D0032BE7F /* FootNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FootNavigationView.m; sourceTree = "<group>"; };
+		22E4C97221CCC98D0032BE7F /* GZIMFootNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZIMFootNavigationView.h; sourceTree = "<group>"; };
+		22E4C97321CCC98D0032BE7F /* GZIMFootNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZIMFootNavigationView.m; sourceTree = "<group>"; };
 		22E4C97521CCD22E0032BE7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		22E4C9A621CE176B0032BE7F /* SheetMoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SheetMoreView.h; sourceTree = "<group>"; };
-		22E4C9A721CE176B0032BE7F /* SheetMoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SheetMoreView.m; sourceTree = "<group>"; };
-		22E4C9A921CE21220032BE7F /* SheetItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SheetItem.h; sourceTree = "<group>"; };
-		22E4C9AA21CE21220032BE7F /* SheetItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SheetItem.m; sourceTree = "<group>"; };
-		22E4C9AC21CE23FF0032BE7F /* SheetItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SheetItemCell.h; sourceTree = "<group>"; };
-		22E4C9AD21CE23FF0032BE7F /* SheetItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SheetItemCell.m; sourceTree = "<group>"; };
+		22E4C9A621CE176B0032BE7F /* GZIMSheetOpenView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZIMSheetOpenView.h; sourceTree = "<group>"; };
+		22E4C9A721CE176B0032BE7F /* GZIMSheetOpenView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZIMSheetOpenView.m; sourceTree = "<group>"; };
+		22E4C9A921CE21220032BE7F /* GZIMSheetOpenEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZIMSheetOpenEntity.h; sourceTree = "<group>"; };
+		22E4C9AA21CE21220032BE7F /* GZIMSheetOpenEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZIMSheetOpenEntity.m; sourceTree = "<group>"; };
+		22E4C9AC21CE23FF0032BE7F /* GZIMSheetOpenCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZIMSheetOpenCell.h; sourceTree = "<group>"; };
+		22E4C9AD21CE23FF0032BE7F /* GZIMSheetOpenCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZIMSheetOpenCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +96,8 @@
 		22E4C97121CCC9540032BE7F /* BottomTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				22E4C97221CCC98D0032BE7F /* FootNavigationView.h */,
-				22E4C97321CCC98D0032BE7F /* FootNavigationView.m */,
+				22E4C97221CCC98D0032BE7F /* GZIMFootNavigationView.h */,
+				22E4C97321CCC98D0032BE7F /* GZIMFootNavigationView.m */,
 				22E4C96E21CCC2CC0032BE7F /* WKWebViewController.h */,
 				22E4C96F21CCC2CC0032BE7F /* WKWebViewController.m */,
 			);
@@ -107,12 +107,12 @@
 		22E4C9A521CE17470032BE7F /* MoreTable */ = {
 			isa = PBXGroup;
 			children = (
-				22E4C9A621CE176B0032BE7F /* SheetMoreView.h */,
-				22E4C9A721CE176B0032BE7F /* SheetMoreView.m */,
-				22E4C9A921CE21220032BE7F /* SheetItem.h */,
-				22E4C9AA21CE21220032BE7F /* SheetItem.m */,
-				22E4C9AC21CE23FF0032BE7F /* SheetItemCell.h */,
-				22E4C9AD21CE23FF0032BE7F /* SheetItemCell.m */,
+				22E4C9A621CE176B0032BE7F /* GZIMSheetOpenView.h */,
+				22E4C9A721CE176B0032BE7F /* GZIMSheetOpenView.m */,
+				22E4C9A921CE21220032BE7F /* GZIMSheetOpenEntity.h */,
+				22E4C9AA21CE21220032BE7F /* GZIMSheetOpenEntity.m */,
+				22E4C9AC21CE23FF0032BE7F /* GZIMSheetOpenCell.h */,
+				22E4C9AD21CE23FF0032BE7F /* GZIMSheetOpenCell.m */,
 			);
 			path = MoreTable;
 			sourceTree = "<group>";
@@ -192,11 +192,11 @@
 				22E4C95A21CCC0CB0032BE7F /* ViewController.m in Sources */,
 				22E4C96521CCC0CB0032BE7F /* main.m in Sources */,
 				22E4C95721CCC0CB0032BE7F /* AppDelegate.m in Sources */,
-				22E4C9A821CE176B0032BE7F /* SheetMoreView.m in Sources */,
+				22E4C9A821CE176B0032BE7F /* GZIMSheetOpenView.m in Sources */,
 				22E4C96D21CCC1CD0032BE7F /* MainViewController.m in Sources */,
-				22E4C9AE21CE23FF0032BE7F /* SheetItemCell.m in Sources */,
-				22E4C9AB21CE21220032BE7F /* SheetItem.m in Sources */,
-				22E4C97421CCC98D0032BE7F /* FootNavigationView.m in Sources */,
+				22E4C9AE21CE23FF0032BE7F /* GZIMSheetOpenCell.m in Sources */,
+				22E4C9AB21CE21220032BE7F /* GZIMSheetOpenEntity.m in Sources */,
+				22E4C97421CCC98D0032BE7F /* GZIMFootNavigationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,9 +6,9 @@
 //  Copyright © 2018年 zzg. All rights reserved.
 //
 
-#import "SheetMoreView.h"
-#import "SheetItem.h"
-#import "SheetItemCell.h"
+#import "GZIMSheetOpenView.h"
+#import "GZIMSheetOpenEntity.h"
+#import "GZIMSheetOpenCell.h"
 
 #define CurrentWindow [self getCurrentWindowView]
 #define DDMWIDTH [UIScreen mainScreen].bounds.size.width
@@ -21,7 +21,7 @@
 
 static CGFloat kMagin = 10.f;
 
-@interface SheetMoreView()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface GZIMSheetOpenView()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *carouselView;
 
@@ -33,7 +33,7 @@ static CGFloat kMagin = 10.f;
 
 @end
 
-@implementation SheetMoreView
+@implementation GZIMSheetOpenView
 
 
 
@@ -65,7 +65,7 @@ static CGFloat kMagin = 10.f;
     NSLog(@"-=-=--=dismisViewTap");
 }
 
--(void)setDataSource:(id<SheetMoreDataSource>)dataSource {
+-(void)setDataSource:(id<GZIMSheetOpenViewDataSource>)dataSource {
     _dataSource = dataSource;
     
     [self.mainView addSubview:self.carouselView];
@@ -83,6 +83,7 @@ static CGFloat kMagin = 10.f;
     centerLine.backgroundColor = [UIColor grayColor];
     [cancleButton addSubview:centerLine];
 
+    
 }
 
 #pragma mark UICollectionViewDelegate  UICollectionViewDataSource
@@ -95,9 +96,9 @@ static CGFloat kMagin = 10.f;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    SheetItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"tempCell" forIndexPath:indexPath];
+    GZIMSheetOpenCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"tempCell" forIndexPath:indexPath];
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(SheetShare:cellForIndexPath:)]) {
-        SheetItem * item = [self.dataSource SheetShare:self cellForIndexPath:indexPath];
+        GZIMSheetOpenEntity * item = [self.dataSource SheetShare:self cellForIndexPath:indexPath];
         [cell setItemText:item];
     }
     return cell;
@@ -134,7 +135,7 @@ static CGFloat kMagin = 10.f;
         _carouselView.showsVerticalScrollIndicator = NO;
         _carouselView.showsHorizontalScrollIndicator = NO;
         
-        [_carouselView registerClass:[SheetItemCell class] forCellWithReuseIdentifier:@"tempCell"];
+        [_carouselView registerClass:[GZIMSheetOpenCell class] forCellWithReuseIdentifier:@"tempCell"];
     }
     return _carouselView;
 }

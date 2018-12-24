@@ -28,4 +28,7 @@
  */
 - (void)setGoBackSelectState:(UIControlState)state;
 
+- (void)dismiss;
+- (void)show;
+
 @end

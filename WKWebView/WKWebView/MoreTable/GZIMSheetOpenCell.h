@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class SheetItem;
+@class GZIMSheetOpenEntity;
 
-@interface SheetItemCell : UICollectionViewCell
+@interface GZIMSheetOpenCell : UICollectionViewCell
 
-- (void)setItemText:(SheetItem *)item;
+- (void)setItemText:(GZIMSheetOpenEntity *)item;
 
 @end

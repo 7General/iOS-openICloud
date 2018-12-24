@@ -6,9 +6,9 @@
 //  Copyright © 2018年 zzg. All rights reserved.
 //
 
-#import "SheetItem.h"
+#import "GZIMSheetOpenEntity.h"
 
-@implementation SheetItem
+@implementation GZIMSheetOpenEntity
 - (instancetype)initItem:(NSString *)itemIcon forItemName:(NSString *)itemName forShareType:(GZIMShareMoreType)shareType {
     self = [super init];
     if (self) {

@@ -6,7 +6,7 @@
 //  Copyright © 2018年 zzg. All rights reserved.
 //
 
-#import "FootNavigationView.h"
+#import "GZIMFootNavigationView.h"
 
 
 @interface FootNavigationView()
@@ -95,6 +95,14 @@
         self.forwardButton.userInteractionEnabled = YES;
         self.forwardButton.selected = NO;
     }
+}
+- (void)dismiss {
+    if([self.webView canGoBack])
+        self.hidden = YES;
+}
+- (void)show {
+     if([self.webView canGoBack])
+         self.hidden = NO;
 }
 
 

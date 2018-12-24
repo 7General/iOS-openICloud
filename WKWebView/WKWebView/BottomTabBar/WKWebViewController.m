@@ -8,10 +8,11 @@
 
 #import "WKWebViewController.h"
 #import <WebKit/WebKit.h>
-#import "FootNavigationView.h"
-#import "SheetMoreView.h"
+#import "GZIMFootNavigationView.h"
+#import "GZIMSheetOpenEntity.h"
+#import "GZIMSheetOpenView.h"
 
-@interface WKWebViewController ()<SheetMoreDataSource,SheetMoreDelegate>
+@interface WKWebViewController ()<GZIMSheetOpenViewDataSource,GZIMSheetOpenViewDelegate,UIScrollViewDelegate>
 
 @property (nonatomic, strong) WKWebView * webView;
 @property (nonatomic, strong) UIProgressView *progressView;
@@ -21,6 +22,7 @@
 
 
 @property (nonatomic, strong) NSMutableArray * sheetShareData;
+@property (nonatomic, assign) CGFloat  lastContentOffset;
 
 @end
 
@@ -51,7 +53,8 @@
     [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
     [self.webView addObserver:self forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:nil];
     [self.webView addObserver:self forKeyPath:@"canGoForward" options:NSKeyValueObservingOptionNew context:nil];
-    
+//    [self.webView.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+    self.webView.scrollView.delegate = self;
     [self.view addSubview:self.progressView];
     
     self.footView = [[FootNavigationView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 56, self.view.frame.size.width, 56) forWKWebView:self.webView];
@@ -60,13 +63,13 @@
     
     
     
-    SheetItem *gg = [SheetItem sheetItem:@"more_open_gg" forItemName:@"发送给呱呱同事" forShareType:GZIMShareGUAGUA];
-    SheetItem *wxFriend = [SheetItem sheetItem:@"more_open_wechat" forItemName:@"发送给微信好友" forShareType:GZIMShareWeChatFriend];
-    SheetItem *wxTime = [SheetItem sheetItem:@"more_open_friend" forItemName:@"分享到朋友圈吧两行样式" forShareType:GZIMShareWeChatTime];
-    SheetItem *collection = [SheetItem sheetItem:@"more_open_collection" forItemName:@"收藏" forShareType:GZIMShareCollection];
-    SheetItem *safari = [SheetItem sheetItem:@"more_open_safari" forItemName:@"在safari中打开" forShareType:GZIMShareSafari];
-    SheetItem *copys = [SheetItem sheetItem:@"more_open_copy" forItemName:@"复制链接" forShareType:GZIMShareCopyUrl];
-    SheetItem *refresh = [SheetItem sheetItem:@"more_open_refresh" forItemName:@"刷新" forShareType:GZIMShareRefresh];
+    GZIMSheetOpenEntity *gg = [GZIMSheetOpenEntity sheetItem:@"more_open_gg" forItemName:@"发送给呱呱同事" forShareType:GZIMShareGUAGUA];
+    GZIMSheetOpenEntity *wxFriend = [GZIMSheetOpenEntity sheetItem:@"more_open_wechat" forItemName:@"发送给微信好友" forShareType:GZIMShareWeChatFriend];
+    GZIMSheetOpenEntity *wxTime = [GZIMSheetOpenEntity sheetItem:@"more_open_friend" forItemName:@"分享到朋友圈吧两行样式" forShareType:GZIMShareWeChatTime];
+    GZIMSheetOpenEntity *collection = [GZIMSheetOpenEntity sheetItem:@"more_open_collection" forItemName:@"收藏" forShareType:GZIMShareCollection];
+    GZIMSheetOpenEntity *safari = [GZIMSheetOpenEntity sheetItem:@"more_open_safari" forItemName:@"在safari中打开" forShareType:GZIMShareSafari];
+    GZIMSheetOpenEntity *copys = [GZIMSheetOpenEntity sheetItem:@"more_open_copy" forItemName:@"复制链接" forShareType:GZIMShareCopyUrl];
+    GZIMSheetOpenEntity *refresh = [GZIMSheetOpenEntity sheetItem:@"more_open_refresh" forItemName:@"刷新" forShareType:GZIMShareRefresh];
     
     [self.sheetShareData addObject:gg];
     [self.sheetShareData addObject:wxFriend];
@@ -100,7 +103,7 @@
 }
 
 - (void)showMoreView {
-    SheetMoreView * sheet = [[SheetMoreView alloc] initWithBottomTitle:@"取消"];
+    GZIMSheetOpenView * sheet = [[GZIMSheetOpenView alloc] initWithBottomTitle:@"取消"];
     sheet.dataSource = self;
     sheet.delegate = self;
     [sheet show];
@@ -108,6 +111,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
+    NSLog(@"=====%@",keyPath);
     if (object == self.webView) {
         if ([keyPath isEqualToString:@"estimatedProgress"]) {
             CGFloat newprogress = [[change objectForKey:NSKeyValueChangeNewKey] doubleValue];
@@ -128,6 +132,11 @@
             [self setFootNavgationState];
         } else {
             self.footView.hidden = YES;
+        }
+    }
+    if (object == self.webView.scrollView) {
+        if([keyPath isEqualToString:@"contentOffset"]){
+            NSLog(@"---contentOffset:%f",self.webView.scrollView.contentOffset.y);
         }
     }
 }
@@ -156,17 +165,32 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(NSInteger)SheetShare:(SheetMoreView *)sheetShare numberOfItemsInSection:(NSInteger)section {
+-(NSInteger)SheetShare:(GZIMSheetOpenView *)sheetShare numberOfItemsInSection:(NSInteger)section {
     return self.sheetShareData.count;
 }
 
-- (SheetItem *)SheetShare:(SheetMoreView *)sheetShare cellForIndexPath:(NSIndexPath *)indexPath {
+- (GZIMSheetOpenEntity *)SheetShare:(GZIMSheetOpenView *)sheetShare cellForIndexPath:(NSIndexPath *)indexPath {
     return self.sheetShareData[indexPath.row];
 }
 
-- (void)SheetShare:(SheetMoreView *)sheetShare didSelectedIndexPath:(NSIndexPath *)indexPath {
-    SheetItem * item = self.sheetShareData[indexPath.row];
+- (void)SheetShare:(GZIMSheetOpenView *)sheetShare didSelectedIndexPath:(NSIndexPath *)indexPath {
+    GZIMSheetOpenEntity * item = self.sheetShareData[indexPath.row];
     NSLog(@"---->>>>didSelectIndexPath:%@",item.itemName);
+}
+
+
+//实现scrollView代理
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    self.lastContentOffset = scrollView.contentOffset.y;//判断上下滑动时
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (scrollView.contentOffset.y < self.lastContentOffset ){
+        //向上
+        [self.footView show];
+    } else if (scrollView.contentOffset.y > self.lastContentOffset ){
+        //向下
+        [self.footView dismiss];
+    }
 }
 
 

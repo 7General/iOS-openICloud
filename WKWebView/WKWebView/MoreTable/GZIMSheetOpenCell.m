@@ -6,17 +6,17 @@
 //  Copyright © 2018年 zzg. All rights reserved.
 //
 
-#import "SheetItemCell.h"
-#import "SheetItem.h"
+#import "GZIMSheetOpenCell.h"
+#import "GZIMSheetOpenEntity.h"
 
-@interface SheetItemCell()
+@interface GZIMSheetOpenCell()
 
 @property (nonatomic, weak) UILabel * itemLabel;
 @property (nonatomic, weak) UIImageView * corverImageView;
 
 @end
 
-@implementation SheetItemCell
+@implementation GZIMSheetOpenCell
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -44,7 +44,7 @@
 }
 
 
-- (void)setItemText:(SheetItem *)item {
+- (void)setItemText:(GZIMSheetOpenEntity *)item {
     self.corverImageView.image = [UIImage imageNamed:item.itemIcon];
     [self.itemLabel setText:item.itemName];
 }
