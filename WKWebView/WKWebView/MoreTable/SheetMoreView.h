@@ -20,16 +20,13 @@
 - (NSInteger)SheetShare:(SheetMoreView *_Nullable)sheetShare numberOfItemsInSection:(NSInteger)section;
 
 @optional
-
 - (SheetItem *_Nullable)SheetShare:(SheetMoreView *_Nullable)sheetShare cellForIndexPath:(NSIndexPath *_Nullable)indexPath;
 @end
 
 
-@protocol CustomDatePickerDelegate <NSObject>
+@protocol SheetMoreDelegate <NSObject>
 @optional
-
-- (void)CpickerView:(nullable UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
-
+- (void)SheetShare:(SheetMoreView *_Nullable)sheetShare didSelectedIndexPath:(NSIndexPath *_Nullable)indexPath;
 @end
 
 
@@ -40,5 +37,6 @@
 -(void)dismisView;
 
 @property (nonatomic, weak, nullable) id <SheetMoreDataSource> dataSource;
+@property (nonatomic, weak, nullable) id <SheetMoreDelegate> delegate;
 
 @end

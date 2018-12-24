@@ -9,18 +9,19 @@
 #import "SheetItem.h"
 
 @implementation SheetItem
-- (instancetype)initItem:(NSString *)itemIcon forItemName:(NSString *)itemName {
+- (instancetype)initItem:(NSString *)itemIcon forItemName:(NSString *)itemName forShareType:(GZIMShareMoreType)shareType {
     self = [super init];
     if (self) {
         self.itemIcon = itemIcon;
         self.itemName = itemName;
+        self.shareType = shareType;
     }
     return self;
 }
 
 
-+ (instancetype)sheetItem:(NSString *)itemIcon forItemName:(NSString *)itemName {
-    return [[self alloc] initItem:itemIcon forItemName:itemName];
++ (instancetype)sheetItem:(NSString *)itemIcon forItemName:(NSString *)itemName forShareType:(GZIMShareMoreType)shareType{
+    return [[self alloc] initItem:itemIcon forItemName:itemName forShareType:shareType];
 }
 
 @end

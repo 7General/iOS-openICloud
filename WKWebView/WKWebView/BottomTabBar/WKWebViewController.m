@@ -11,7 +11,7 @@
 #import "FootNavigationView.h"
 #import "SheetMoreView.h"
 
-@interface WKWebViewController ()<SheetMoreDataSource>
+@interface WKWebViewController ()<SheetMoreDataSource,SheetMoreDelegate>
 
 @property (nonatomic, strong) WKWebView * webView;
 @property (nonatomic, strong) UIProgressView *progressView;
@@ -60,13 +60,13 @@
     
     
     
-    SheetItem *gg = [SheetItem sheetItem:@"more_open_gg" forItemName:@"发送给呱呱同事"];
-    SheetItem *wxFriend = [SheetItem sheetItem:@"more_open_wechat" forItemName:@"发送给微信好友"];
-    SheetItem *wxTime = [SheetItem sheetItem:@"more_open_friend" forItemName:@"分享到朋友圈吧两行样式"];
-    SheetItem *collection = [SheetItem sheetItem:@"more_open_collection" forItemName:@"收藏"];
-    SheetItem *safari = [SheetItem sheetItem:@"more_open_safari" forItemName:@"在safari中打开"];
-    SheetItem *copys = [SheetItem sheetItem:@"more_open_copy" forItemName:@"复制链接"];
-    SheetItem *refresh = [SheetItem sheetItem:@"more_open_refresh" forItemName:@"刷新"];
+    SheetItem *gg = [SheetItem sheetItem:@"more_open_gg" forItemName:@"发送给呱呱同事" forShareType:GZIMShareGUAGUA];
+    SheetItem *wxFriend = [SheetItem sheetItem:@"more_open_wechat" forItemName:@"发送给微信好友" forShareType:GZIMShareWeChatFriend];
+    SheetItem *wxTime = [SheetItem sheetItem:@"more_open_friend" forItemName:@"分享到朋友圈吧两行样式" forShareType:GZIMShareWeChatTime];
+    SheetItem *collection = [SheetItem sheetItem:@"more_open_collection" forItemName:@"收藏" forShareType:GZIMShareCollection];
+    SheetItem *safari = [SheetItem sheetItem:@"more_open_safari" forItemName:@"在safari中打开" forShareType:GZIMShareSafari];
+    SheetItem *copys = [SheetItem sheetItem:@"more_open_copy" forItemName:@"复制链接" forShareType:GZIMShareCopyUrl];
+    SheetItem *refresh = [SheetItem sheetItem:@"more_open_refresh" forItemName:@"刷新" forShareType:GZIMShareRefresh];
     
     [self.sheetShareData addObject:gg];
     [self.sheetShareData addObject:wxFriend];
@@ -102,6 +102,7 @@
 - (void)showMoreView {
     SheetMoreView * sheet = [[SheetMoreView alloc] initWithBottomTitle:@"取消"];
     sheet.dataSource = self;
+    sheet.delegate = self;
     [sheet show];
 }
 
@@ -163,6 +164,10 @@
     return self.sheetShareData[indexPath.row];
 }
 
+- (void)SheetShare:(SheetMoreView *)sheetShare didSelectedIndexPath:(NSIndexPath *)indexPath {
+    SheetItem * item = self.sheetShareData[indexPath.row];
+    NSLog(@"---->>>>didSelectIndexPath:%@",item.itemName);
+}
 
 
 @end

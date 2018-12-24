@@ -105,6 +105,9 @@ static CGFloat kMagin = 10.f;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"didSelectItemAtIndexPathdidSelectItemAtIndexPath");
+    if (self.delegate && [self.delegate respondsToSelector:@selector(SheetShare:didSelectedIndexPath:)]) {
+        [self.delegate SheetShare:self didSelectedIndexPath:indexPath];
+    }
 }
 
 
