@@ -53,7 +53,7 @@
     [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
     [self.webView addObserver:self forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:nil];
     [self.webView addObserver:self forKeyPath:@"canGoForward" options:NSKeyValueObservingOptionNew context:nil];
-//    [self.webView.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+
     self.webView.scrollView.delegate = self;
     [self.view addSubview:self.progressView];
     
@@ -132,11 +132,6 @@
             [self setFootNavgationState];
         } else {
             self.footView.hidden = YES;
-        }
-    }
-    if (object == self.webView.scrollView) {
-        if([keyPath isEqualToString:@"contentOffset"]){
-            NSLog(@"---contentOffset:%f",self.webView.scrollView.contentOffset.y);
         }
     }
 }
