@@ -16,13 +16,19 @@ NSString * const GZIMCollectionViewFooterIdentifier = @"GZIMCollectionViewFooter
 
 @interface GZIMCollectionViewController ()
 @property (nonatomic, strong, readwrite) UICollectionView *collectionView;
+
+
 @end
 
 @implementation GZIMCollectionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.collectionView];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    self.scrollView.backgroundColor = [UIColor greenColor];
+//    self.scrollview.contentSize = CGSizeMake(0, self.view.frame.size.height * 2);
+    [self.view addSubview:self.scrollView];
+    [self.scrollView addSubview:self.collectionView];
 }
 
 
@@ -33,7 +39,7 @@ NSString * const GZIMCollectionViewFooterIdentifier = @"GZIMCollectionViewFooter
         
         UICollectionViewFlowLayout *flowLayout = [self collectionViewFlowLayout];
         
-        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kGZIM_SCREEN_WIDTH, kGZIM_SCREEN_HEIGHT) collectionViewLayout:flowLayout];
+        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kGZIM_SCREEN_WIDTH, 400) collectionViewLayout:flowLayout];
         
         [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:GZIMCollectionViewHeaderIdentifier];
         [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:GZIMCollectionViewFooterIdentifier];
@@ -42,7 +48,7 @@ NSString * const GZIMCollectionViewFooterIdentifier = @"GZIMCollectionViewFooter
         _collectionView.dataSource = self;
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
-        _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView.backgroundColor = [UIColor redColor];
         _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _collectionView.alwaysBounceVertical = YES;
         

@@ -25,4 +25,7 @@ FOUNDATION_EXPORT NSString * const GZIMCollectionViewFooterIdentifier;
 // impl by subclass
 - (UICollectionViewFlowLayout *)collectionViewFlowLayout;
 
+
+@property (nonatomic, strong) UIScrollView * scrollView;
+
 @end

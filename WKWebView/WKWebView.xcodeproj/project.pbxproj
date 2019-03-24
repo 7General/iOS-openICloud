@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		224A111F21D4A96000A41ECD /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224A111E21D4A96000A41ECD /* NavigationViewController.m */; };
+		224A112221D4B51A00A41ECD /* UIViewController+GZIMNavigationPopHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 224A112121D4B51900A41ECD /* UIViewController+GZIMNavigationPopHandler.m */; };
 		22E4C95721CCC0CB0032BE7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C95621CCC0CB0032BE7F /* AppDelegate.m */; };
 		22E4C95A21CCC0CB0032BE7F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C95921CCC0CB0032BE7F /* ViewController.m */; };
 		22E4C95D21CCC0CB0032BE7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E4C95B21CCC0CB0032BE7F /* Main.storyboard */; };
@@ -22,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		224A111D21D4A96000A41ECD /* NavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		224A111E21D4A96000A41ECD /* NavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		224A112021D4B51900A41ECD /* UIViewController+GZIMNavigationPopHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GZIMNavigationPopHandler.h"; sourceTree = "<group>"; };
+		224A112121D4B51900A41ECD /* UIViewController+GZIMNavigationPopHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GZIMNavigationPopHandler.m"; sourceTree = "<group>"; };
 		22E4C95221CCC0CB0032BE7F /* WKWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E4C95521CCC0CB0032BE7F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22E4C95621CCC0CB0032BE7F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -89,6 +95,10 @@
 				22E4C96421CCC0CB0032BE7F /* main.m */,
 				22E4C96B21CCC1CD0032BE7F /* MainViewController.h */,
 				22E4C96C21CCC1CD0032BE7F /* MainViewController.m */,
+				224A111D21D4A96000A41ECD /* NavigationViewController.h */,
+				224A111E21D4A96000A41ECD /* NavigationViewController.m */,
+				224A112021D4B51900A41ECD /* UIViewController+GZIMNavigationPopHandler.h */,
+				224A112121D4B51900A41ECD /* UIViewController+GZIMNavigationPopHandler.m */,
 			);
 			path = WKWebView;
 			sourceTree = "<group>";
@@ -190,6 +200,7 @@
 			files = (
 				22E4C97021CCC2CC0032BE7F /* WKWebViewController.m in Sources */,
 				22E4C95A21CCC0CB0032BE7F /* ViewController.m in Sources */,
+				224A111F21D4A96000A41ECD /* NavigationViewController.m in Sources */,
 				22E4C96521CCC0CB0032BE7F /* main.m in Sources */,
 				22E4C95721CCC0CB0032BE7F /* AppDelegate.m in Sources */,
 				22E4C9A821CE176B0032BE7F /* GZIMSheetOpenView.m in Sources */,
@@ -197,6 +208,7 @@
 				22E4C9AE21CE23FF0032BE7F /* GZIMSheetOpenCell.m in Sources */,
 				22E4C9AB21CE21220032BE7F /* GZIMSheetOpenEntity.m in Sources */,
 				22E4C97421CCC98D0032BE7F /* GZIMFootNavigationView.m in Sources */,
+				224A112221D4B51A00A41ECD /* UIViewController+GZIMNavigationPopHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

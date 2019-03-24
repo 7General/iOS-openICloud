@@ -1,14 +1,12 @@
 //
 //  AppDelegate.m
-//  WKWebView
+//  edit-uitableview
 //
-//  Created by zzg on 2018/12/21.
-//  Copyright © 2018年 zzg. All rights reserved.
+//  Created by zzg on 2019/3/24.
+//  Copyright © 2019 zzg. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
-#import "NavigationViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,13 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
-    MainViewController * main = [[MainViewController alloc] init];
-    NavigationViewController * nav = [[NavigationViewController alloc] initWithRootViewController:main];
-    self.window.rootViewController = nav;
-    
-    [self.window makeKeyAndVisible];
+    // Override point for customization after application launch.
     return YES;
 }
 

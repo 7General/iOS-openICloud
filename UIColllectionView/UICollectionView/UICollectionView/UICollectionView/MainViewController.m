@@ -44,6 +44,9 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
     self.navigationItem.rightBarButtonItem = rightBar;
     
     
+    self.scrollView.contentSize = CGSizeMake(0, self.collectionView.frame.size.height * 2);
+    
+    
 //    [self move:2 a:@"A" b:@"B" c:@"C"];
 //    NSLog(@"========================");
 //    [self move:3 a:@"A" b:@"B" c:@"C"];
@@ -146,6 +149,7 @@ static NSString * const GZWorkspaceItemReuseIdentifier = @"GZWorkspaceItemReuseI
     [self.departArry addObject:@"10"];
     [self.departArry addObject:@"11"];
     [self.departArry addObject:@"12"];
+    return;
     [self.departArry addObject:@"13"];
     [self.departArry addObject:@"14"];
     [self.departArry addObject:@"15"];

@@ -15,6 +15,7 @@
     Son * s = [[Son alloc] init];
     // 默认Son，没有实现run方法，可以通过performSelector调用，但是会报错。
     // 动态添加方法就不会报错
+//    [s performSelector:@selector(drivePlan)];
     [s performSelector:@selector(runS)];
 }
 

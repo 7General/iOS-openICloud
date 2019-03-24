@@ -35,11 +35,11 @@
 - (void)initSlider {
     CGFloat y = CGRectGetHeight(self.frame) - 28;
     // 缓冲区
-    self.progress = [[UIProgressView alloc] initWithFrame:CGRectMake(102, y + 2, self.frame.size.width - 234, kVideoSlideHeight)];
+    self.progress = [[UIProgressView alloc] initWithFrame:CGRectMake(102, y + 2, self.frame.size.width - 180, kVideoSlideHeight)];
     [self addSubview:self.progress];
     
     // 进度条
-    self.slideView = [[VideoSliderView alloc] initWithFrame:CGRectMake(100, y, self.frame.size.width - 230, kVideoSlideHeight)];
+    self.slideView = [[VideoSliderView alloc] initWithFrame:CGRectMake(100, y, self.frame.size.width - 184, kVideoSlideHeight)];
     self.slideView.value = 0.0;
     [self addSubview:self.slideView];
 
@@ -124,10 +124,10 @@
 - (void)layoutSubviews
 {
     CGFloat y = CGRectGetHeight(self.frame) - 28;
-    _slideView.frame = CGRectMake(100, y, self.frame.size.width - 230, kVideoSlideHeight);
+    _slideView.frame = CGRectMake(100, y, self.frame.size.width - 180, kVideoSlideHeight);
     _playButton.frame = CGRectMake(15, CGRectGetHeight(self.frame) - 40, 30, 30);
     _forwardButton.frame = CGRectMake(60, CGRectGetHeight(self.frame) - 38, 25, 25);
-    _progress.frame = CGRectMake(102, y + 2, self.frame.size.width - 234, kVideoSlideHeight);
+    _progress.frame = CGRectMake(102, y + 2, self.frame.size.width - 184, kVideoSlideHeight);
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     if (UIInterfaceOrientationPortrait == orientation) {
         _currentTimeLabel.frame = CGRectMake(self.frame.size.width * 0.88 - 25, CGRectGetHeight(self.frame) - 35.5, 150, 20);

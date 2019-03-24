@@ -11,6 +11,7 @@
 #import "GZIMFootNavigationView.h"
 #import "GZIMSheetOpenEntity.h"
 #import "GZIMSheetOpenView.h"
+#import "UIViewController+GZIMNavigationPopHandler.h"
 
 @interface WKWebViewController ()<GZIMSheetOpenViewDataSource,GZIMSheetOpenViewDelegate,UIScrollViewDelegate>
 
@@ -19,6 +20,9 @@
 @property (nonatomic, strong) FootNavigationView * footView;
 
 @property (nonatomic, strong) UIView * ControlView;
+
+
+@property (nonatomic,strong) id popDelegate;
 
 
 @property (nonatomic, strong) NSMutableArray * sheetShareData;
@@ -34,7 +38,20 @@
     }
     return _sheetShareData;
 }
+-(BOOL)navigationShouldPopOnBackButton {
+    if (self.webView.canGoBack) {
+        [self.webView goBack];
+        return NO;
+    }
+    return YES;
+}
 
+- (BOOL)navigationShouldPopOnPopGesture {
+    if (self.webView.canGoBack) {
+        return NO;
+    }
+    return YES;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,6 +62,8 @@
     
     self.webView = [[WKWebView alloc] initWithFrame:self.view.frame];
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.xypq.gov.cn/"]]];
+//    self.webView.UIDelegate = self;
+//    self.webView.navigationDelegate = self;
     [self.view addSubview:self.webView];
     
     
@@ -53,7 +72,7 @@
     [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
     [self.webView addObserver:self forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:nil];
     [self.webView addObserver:self forKeyPath:@"canGoForward" options:NSKeyValueObservingOptionNew context:nil];
-
+    
     self.webView.scrollView.delegate = self;
     [self.view addSubview:self.progressView];
     
@@ -80,17 +99,21 @@
     [self.sheetShareData addObject:refresh];
 }
 
+//- (void)popViewController {
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
+
 /**
  设置返回按钮
  */
 - (void)confgLeftBarButton {
-    self.navigationItem.leftBarButtonItem = nil;
-    UIButton * leftItem = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
-    [leftItem setImage:[UIImage imageNamed:@"nav_close_icon"] forState:UIControlStateNormal];
-    [leftItem setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [leftItem.titleLabel setFont:[UIFont systemFontOfSize:17]];
-    [leftItem addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
-    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:leftItem]];
+//    self.navigationItem.leftBarButtonItem = nil;
+//    UIButton * leftItem = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+//    [leftItem setImage:[UIImage imageNamed:@"nav_close_icon"] forState:UIControlStateNormal];
+//    [leftItem setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+//    [leftItem.titleLabel setFont:[UIFont systemFontOfSize:17]];
+//    [leftItem addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
+//    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:leftItem]];
     
     
     self.navigationItem.rightBarButtonItem = nil;
@@ -126,7 +149,7 @@
             self.title = self.webView.title;
         } else if([keyPath isEqualToString:@"canGoBack"]){
             self.footView.hidden = !self.webView.canGoBack;
-
+            
             [self setFootNavgationState];
         } else if([keyPath isEqualToString:@"canGoForward"]){
             [self setFootNavgationState];
@@ -189,4 +212,29 @@
 }
 
 
+
+//- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
+//    NSLog(@"===>>>>:%@",[webView.URL absoluteString]);
+//}
+//-(void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+//
+//}
+//
+//-(void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+//
+//}
+//
+//- (WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures {
+//    WKFrameInfo *frameInfo = navigationAction.targetFrame;
+//    if (![frameInfo isMainFrame]) {
+//        [self.webView loadRequest:navigationAction.request];
+//    }
+//    return nil;
+//}
+
+
+
+
+
 @end
+

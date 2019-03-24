@@ -56,7 +56,7 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
         [self initNaviBackView];
         [self initGesture];
         [self initTimer];
-//        [self initNotification];
+        [self initNotification];
 
     }
     return self;
@@ -64,6 +64,7 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
 - (void)initGesture {
     self.tapHandler = [[VideoTaphandler alloc] initTapHandlerWithView:self];
 }
+
 
 
 /**
@@ -121,10 +122,25 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
 - (void)initNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActive)
                                                  name:UIApplicationWillResignActiveNotification object:nil];
+    // 屏幕旋转通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(statusBarChanged:)
+                                                 name:UIApplicationDidChangeStatusBarOrientationNotification
+                                               object:nil];
 }
+
+
 
 - (void)applicationWillResignActive {
     [self.pipViewController startPictureInPicture];
+}
+
+- (void)statusBarChanged:(NSNotification *)noti
+{
+    NSLog(@"====================================");
+    [self setNeedsLayout];
+    [_controlView setNeedsLayout];
+    [_naviBack setNeedsLayout];
 }
 
 #pragma mark 返回按钮
@@ -288,6 +304,9 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
     }
     _controlView.frame = CGRectMake(0, y, self.frame.size.width, kVideoControlHeight);
     _naviBack.frame    = CGRectMake(0, 0, self.frame.size.width, kVideoNaviHeight);
+    
+    
+    NSLog(@"cgrect----%@",NSStringFromCGRect(self.frame));
 }
 
 #pragma mark 设置标题
@@ -345,6 +364,9 @@ static int autoHiddenCount     = 0;// timer停止（player暂停），hiddenTime
 -(void)dealloc {
     [_timer invalidate];
     [_hiddenTimer invalidate];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationDidChangeStatusBarOrientationNotification
+                                                  object:nil];
 }
 
 

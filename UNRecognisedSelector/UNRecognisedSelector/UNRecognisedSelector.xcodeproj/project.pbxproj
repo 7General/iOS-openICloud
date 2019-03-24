@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22BA896C21D332350056FCFA /* Fuck.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BA896B21D332340056FCFA /* Fuck.m */; };
 		22E4C98521CDF12C0032BE7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C98421CDF12C0032BE7F /* AppDelegate.m */; };
 		22E4C98821CDF12C0032BE7F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E4C98721CDF12C0032BE7F /* ViewController.m */; };
 		22E4C98B21CDF12C0032BE7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E4C98921CDF12C0032BE7F /* Main.storyboard */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22BA896A21D332340056FCFA /* Fuck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fuck.h; sourceTree = "<group>"; };
+		22BA896B21D332340056FCFA /* Fuck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fuck.m; sourceTree = "<group>"; };
 		22E4C98021CDF12C0032BE7F /* UNRecognisedSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UNRecognisedSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E4C98321CDF12C0032BE7F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22E4C98421CDF12C0032BE7F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -106,6 +109,8 @@
 				22E4C9A021CE12390032BE7F /* Father.m */,
 				22E4C9A221CE12410032BE7F /* Son.h */,
 				22E4C9A321CE12410032BE7F /* Son.m */,
+				22BA896A21D332340056FCFA /* Fuck.h */,
+				22BA896B21D332340056FCFA /* Fuck.m */,
 			);
 			path = Enity;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22BA896C21D332350056FCFA /* Fuck.m in Sources */,
 				22E4C9A421CE12410032BE7F /* Son.m in Sources */,
 				22E4C98821CDF12C0032BE7F /* ViewController.m in Sources */,
 				22E4C99321CDF12C0032BE7F /* main.m in Sources */,
